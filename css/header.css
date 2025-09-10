@@ -1,5 +1,4 @@
 .header {
-  /* background-color: black; */
   border-bottom: 1px solid #fff;
   padding: 1.5vw 0;
 }
@@ -44,12 +43,12 @@
   align-items: center;
 }
 
-.search-icon i {
+.header .search-icon i {
   color: #fff;
   font-size: clamp(20px, 2vw, 40px);
 }
 
-.menu-icon i {
+.header .menu-icon i {
   color: #fff;
   font-size: clamp(20px, 2vw, 40px);
 }

@@ -1,0 +1,151 @@
+/* 레이아웃 */
+
+.wrapper {
+  /* max-width: 50rem; */
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  position: relative;
+  background-color: #000000;
+  color: #fff;
+}
+.wrapper > h2 {
+  font-size: 85px;
+
+  padding-left: 10%;
+}
+
+/* 탭 설정 */
+.tabs {
+  position: relative;
+
+  background: rgba(0, 0, 0, 0);
+
+  height: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+/* 탭 스위치 라디오 체크로 탭화면이 변경 */
+.tab-switch {
+  display: none;
+}
+.tab-content {
+  border-top: solid 1px #fff;
+  width: 100%;
+  max-width: 1200px;
+  position: relative;
+  margin: auto;
+  padding: 1.618rem;
+  color: #ffffff;
+  background-color: rgb(82, 82, 82);
+}
+.tab-content img {
+  width: 100%;
+}
+.tab-content::before {
+  content: "";
+}
+
+/* 탭 클릭시 */
+
+.tabs::before,
+.tabs::after {
+  content: "";
+  display: table;
+}
+
+.tabs::after {
+  clear: both;
+}
+
+.tab-content {
+  width: 100%;
+  position: absolute;
+  top: 2.75em;
+  left: 50%;
+  transform: translatex(-50%);
+  height: 600px;
+  z-index: 1;
+  opacity: 0;
+  transition: all 0.35s;
+  margin-top: 1%;
+}
+.tab-content > img {
+  aspect-ratio: 16 / 9;
+}
+.tab-switch:checked + label + .tab-content {
+  z-index: 2;
+  opacity: 1;
+  transition: all 0.35s;
+}
+
+.infoLogo {
+  filter: brightness(0.3);
+}
+/* 첫번째탭 info-map */
+#tab-01 {
+  width: 80%;
+}
+.info-map-item {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+}
+.info-map {
+  width: 40%;
+  max-width: 350px;
+}
+.map-scr {
+  width: 30%;
+  line-height: 30px;
+}
+/* tab2 */
+#tab-02 {
+  width: 80%;
+}
+.open_time {
+  display: flex;
+  flex-direction: column;
+  gap: 10%;
+}
+.sc-top {
+  display: flex;
+  justify-content: space-around;
+}
+.sc-bt {
+  display: flex;
+  justify-content: space-around;
+}
+.sc-top-l,
+.sc-bt-l {
+  line-height: 30px;
+  width: 20%;
+}
+.sc-top-l > p,
+.sc-bt-l > p {
+  text-align: right;
+}
+.sc-top-r,
+.sc-bt-r {
+  line-height: 30px;
+  width: 70%;
+}
+
+.sc-top-r > p,
+.sc-bt-r > p {
+  text-align: left;
+}
+/* tab3 */
+#tab-03 {
+  width: 80%;
+}
+.diract-scr {
+  line-height: 30px;
+}
+
+/* more color */
+.read-more {
+  color: #dbdbdbaa;
+}

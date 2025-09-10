@@ -6,11 +6,11 @@
 
 /* ★ 오른쪽 여백 개입 가능성 차단: 구버전 테마의 margin-right 무력화 */
 .review .swiper-slide {
+
   margin: 0 !important;   /* ★ */
   padding: 0;
   box-sizing: border-box;
 }
-
 
 /* 컨텐츠 스타일 */
 .review {
@@ -36,34 +36,34 @@
 
 .review .swiper-slide img{
   width: 80%;
-  display: block;          
-  margin: 0 auto;         
+  display: block;
+  margin: 0 auto;
 }
-
 
 @media (max-width: 1400px) {
   .review {
     margin-top: 80vh;
     margin-bottom: 10vw;
   }
+
   .review .swiper-slide img{
     width: 100%;
   }
 }
 
-@media (max-width:1000px) {
+@media (max-width: 1000px) {
   .review {
     margin-top: 90vh;
     margin-bottom: 10vw;
   }
+
   .review .swiper-slide img{
     width: 100%;
   }
 }
 
-
-@media (max-width: 500px) {   
-   .review {
+@media (max-width: 500px) {
+  .review {
     margin-top: 85vh;
     margin-bottom: 10vw;
   }

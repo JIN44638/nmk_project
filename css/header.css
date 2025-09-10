@@ -14,7 +14,7 @@
 .header-logo {
   display: flex;
   align-items: flex-end;
-    gap: 1vw;
+  gap: 1vw;
 }
 
 .header .logo-1 {
@@ -55,22 +55,22 @@
 
 @media (max-width: 768px) {
   .header .logo-1 {
-  width: 7vw;
-  min-width: 40px;
-}
+    width: 7vw;
+    min-width: 40px;
+  }
 
-.header .logo-1 img {
-  width: 100%;
-  display: block;
-}
+  .header .logo-1 img {
+    width: 100%;
+    display: block;
+  }
 
-.header .logo-2 {
-  width: 7vw;
-  min-width: 40px;
-}
+  .header .logo-2 {
+    width: 7vw;
+    min-width: 40px;
+  }
 
-.header .logo-2 img {
-  width: 100%;
-  display: block;
-}
+  .header .logo-2 img {
+    width: 100%;
+    display: block;
+  }
 }

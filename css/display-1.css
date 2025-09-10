@@ -1,0 +1,66 @@
+.display1_wrap {
+  background: url(../images/display1/display1background.png) no-repeat;
+  background-size: cover;
+}
+.display1_wrap .container {
+  position: relative;
+  width: 100%;
+  max-width: 1300px;
+  margin: auto;
+  padding-top: 100px;
+}
+
+.display1_wrap .inner-display1 > h1 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(32px, 5vw, 70px);
+}
+
+
+.display1_wrap .swiper {
+  width: 100%;
+  max-width: 1100px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.display1_wrap .swiper-slide {
+  background-position: center;
+  background-size: cover;
+  /* width: 410px;
+  height: 540px; */
+  padding: 5% 5% 0 5%;
+  aspect-ratio: 1/1;
+  /* border-radius: 10px; */
+  overflow: hidden;
+  transition: all 0.3s;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.display1_wrap .swiper-slide img {
+  width: 80%; /* 이미지 80% */
+  height: auto;
+  display: block;
+  object-fit: contain;
+  filter: brightness(0.6);
+  transition: all 0.3s;
+}
+
+
+
+/* 가운데 활성화된 슬라이드만 원래 크기 */
+.display1_wrap .swiper-slide-active img {
+  filter: brightness(1.2);
+}
+
+/* 앞뒤 슬라이드는 살짝 크게 (옵션) */
+.display1Swiper .swiper-slide-prev,
+.display1Swiper .swiper-slide-next {
+  z-index: 5;
+}
+.display1_wrap .swiper-slide > p {
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}

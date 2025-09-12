@@ -24,7 +24,7 @@
   margin-bottom: 10px;
 }
 
-.container {
+.reservation-wrap .container {
   max-width: 1000px;
   margin: 0 auto;
   display: grid;

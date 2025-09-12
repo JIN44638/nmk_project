@@ -2,9 +2,9 @@
   background: url(../images/display2/display2background.png) no-repeat;
   background-size: cover;
 }
-.display2_wrap .container {
+.display2_wrap .inner-display2 {
   position: relative;
-  width: 100%;
+  width: 90%;
   max-width: 1300px;
   margin: auto;
   padding-top: 100px;
@@ -12,6 +12,8 @@
 .display2_wrap .inner-display2 > h1 {
   font-family: "Playfair Display", serif;
   font-size: clamp(32px, 5vw, 70px);
+  color: #fff;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.50);
 }
 .display2_wrap .swiper {
   width: 100%;
@@ -29,11 +31,19 @@
   /* border-radius: 10px; */
   overflow: hidden;
   transition: all 0.3s;
-  background-color: black;
+  /* background-color: black; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  /* glass효과 */
+   /* border-radius: 15px;
+  padding: 25px;
+  width: 100%;
+  max-width: 500px; */
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
 }
 .display2_wrap .swiper-slide img {
   width: 80%; /* 이미지 80% */
@@ -51,5 +61,14 @@
 .display2_wrap .swiper-slide > p {
   color: #fff;
   text-align: center;
-  padding: 20px;
+   padding: 20px;
+  font-size: clamp(11px, 3vw, 16px);
+}
+@media screen and (max-width: 550px) {
+.display2_wrap .swiper-slide {
+   padding: 10% 5% 0 5%
+  }
+  .display2_wrap .swiper-slide > p{
+   padding: 7px;
+  }
 }

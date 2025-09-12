@@ -59,6 +59,7 @@
     <link rel="stylesheet" href="css/kdh.css" />
     <link rel="stylesheet" href="css/info.css" />
     <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/modal.css">
 
     <!-- js -->
     <script src="js/jquery-1.12.3.js"></script>
@@ -74,6 +75,7 @@
     <script src="js/kdh.js"></script>
     <script src="js/info.js"></script>
     <script src="js/footer.js"></script>
+    <script src="js/modal.js"></script>
 
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -88,15 +90,442 @@
     />
   </head>
   <body>
+    <!-- 모달창 -->
+     <div class="modal-wrap">
+      <div class="modal-txt">
+        <p class="modalTitle">Special Ticket for You</p>
+        <div class="closeBtn">
+          <a href="#"><p>x</p></a>
+        </div>
+      </div>
+
+      <div class="ticket" id="ticket">
+        <div class="left"><img src="./images/modal/modal-1.png" alt="" /></div>
+        <div class="right">
+          <img src="./images/modal/modal-2.png" alt="" />
+        </div>
+      </div>
+    </div>
     <!-- 상단 -->
-    <!-- 메인 배너 -->
+    <div class="header-wrap">
+      <header class="header">
+        <div class="inner">
+          <!-- 로고 영역 -->
+          <a href="">
+            <div class="header-logo">
+              <!-- 아이콘 로고 -->
+              <div class="logo-1">
+                <img src="./images/header/logo-1.png" alt="아이콘 로고" />
+              </div>
+              <!-- 글자 로고 -->
+              <div class="logo-2">
+                <img src="./images/header/logo-2.png" alt="글자 로고" />
+              </div>
+            </div>
+          </a>
+
+          <!-- 아이콘 영역 -->
+          <div class="header-icon">
+            <div class="search-icon">
+              <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+            </div>
+            <div class="menu-icon">
+              <a href="#"><i class="fa-solid fa-bars"></i></a>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- 메인 배너 -->
+      <div class="banner-wrap">
+        <div class="main-banner-video">
+          <video autoplay muted loop playsinline class="bg-video">
+            <source
+              src="./images/main-banner/main-banner-video.mp4"
+              type="video/mp4"
+            />
+          </video>
+        </div>
+        <div class="main-banner-txt">
+          <h1>
+            NATIONAL MUSEUM <br />
+            OF KOREA
+          </h1>
+        </div>
+      </div>
+    </div>
+
     <!-- 리뷰 -->
+    <div class="review-wrap">
+      <section class="review">
+        <div class="review-txt-1">
+          <p>
+            400만 명이 경험한 이유 <br />
+            지금 확인해 보세요.
+          </p>
+        </div>
+        <div class="review-txt-2">
+          <p>국립중앙박물관의 진짜 이야기는 여기 있습니다</p>
+        </div>
+        <div class="swiper-container-review">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="./images/review/review1.png" alt="리뷰 이미지 1" />
+            </div>
+            <div class="swiper-slide">
+              <img src="./images/review/review2.png" alt="리뷰 이미지 2" />
+            </div>
+            <div class="swiper-slide">
+              <img src="./images/review/review3.png" alt="리뷰 이미지 3" />
+            </div>
+            <div class="swiper-slide">
+              <img src="./images/review/review4.png" alt="리뷰 이미지 4" />
+            </div>
+            <div class="swiper-slide">
+              <img src="./images/review/review5.png" alt="리뷰 이미지 5" />
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
     <!-- 예약 -->
+    <div class="reservation-wrap">
+      <div class="reservation-title">
+        <p class="reservation-title-text">Wanna Join a Guided Tour?</p>
+      </div>
+
+      <div class="container">
+        <!-- 캘린더 -->
+        <div class="calendar-container">
+          <div class="calendar-header">
+            <button class="nav-btn" id="prevBtn">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <div class="month-year" id="monthYear"></div>
+            <button class="nav-btn" id="nextBtn">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+
+          <div class="calendar-grid" id="calendar"></div>
+          <!-- 
+        <div class="calendar-weekdays">
+          <div>SUN</div>
+          <div>MON</div>
+          <div>TUE</div>
+          <div>WED</div>
+          <div>THU</div>
+          <div>FRI</div>
+          <div>SAT</div>
+        </div> 
+        --></div>
+
+        <div class="detail-panel" id="detailPanel">
+          <div class="placeholder-message">
+            📅 날짜를 선택하여 투어 정보를 확인하세요
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- 전시-1 -->
+    <div class="display1_wrap">
+      <div class="inner-display1">
+        <h1>Sculpture <br />and Crafts</h1>
+        <!-- Swiper -->
+        <div class="swiper display1Swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="images/display1/Sculpture1.png" alt="공예전시1" />
+              <p>청자</p>
+            </div>
+            <div class="swiper-slide">
+              <img src="images/display1/Sculpture2.png" alt="공예전시2" />
+              <p>금속공예</p>
+            </div>
+            <div class="swiper-slide">
+              <img src="images/display1/Sculpture3.png" alt="공예전시3" />
+              <p>백자</p>
+            </div>
+            <div class="swiper-slide">
+              <img src="images/display1/Sculpture1.png" alt="공예전시1" />
+              <p>청자</p>
+            </div>
+            <div class="swiper-slide">
+              <img src="images/display1/Sculpture2.png" alt="공예전시2" />
+              <p>금속공예</p>
+            </div>
+            <div class="swiper-slide">
+              <img src="images/display1/Sculpture3.png" alt="공예전시3" />
+              <p>백자</p>
+            </div>
+            <!-- <div class="swiper-slide">
+          <img
+            src="https://image.tmdb.org/t/p/w500/q719jXXEzOoYaps6babgKnONONX.jpg"
+            alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://image.tmdb.org/t/p/w500/3ombg55JQiIpoPnXYb2oYdr6DtP.jpg"
+            alt="" />
+        </div> -->
+          </div>
+          <!-- 화살표 -->
+          <!-- <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div> -->
+        </div>
+      </div>
+    </div>
     <!-- 전시-2 -->
+    <div class="display2_wrap">
+      <div class="inner-display2">
+        <h1>Paintings</h1>
+        <!-- Swiper -->
+        <div class="swiper display2Swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="images/display2/painting1.png" alt="민화1" />
+              <p>민화</p>
+            </div>
+            <div class="swiper-slide">
+              <img src="images/display2/painting2.png" alt="민화2" />
+              <p>초상화</p>
+            </div>
+            <div class="swiper-slide">
+              <img src="images/display2/painting3.png" alt="민화3" />
+              <p>의궤</p>
+            </div>
+            <div class="swiper-slide">
+              <img src="images/display2/painting1.png" alt="민화1" />
+              <p>민화</p>
+            </div>
+            <div class="swiper-slide">
+              <img src="images/display2/painting2.png" alt="민화2" />
+              <p>초상화</p>
+            </div>
+            <div class="swiper-slide">
+              <img src="images/display2/painting3.png" alt="민화3" />
+              <p>의궤</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- 액티비티 -->
+    <div class="activity-wrap">
+      <section class="activity">
+        <div class="activity-txt">
+          <h1>국립 중앙 박물관을<br />생생하게 체험해 보세요.</h1>
+          <h6>모두를 위한 열린 무대, 함께 즐기는 문화의 장</h6>
+          <div class="goto">
+            <h3><a href="#">go to experience</a></h3>
+            <div class="imgbox">
+              <img src="./images/activity/arrow.png" alt="화살표 사진" />
+            </div>
+          </div>
+        </div>
+
+        <!-- 카드 섹션 -->
+        <div class="swiper swiper-activity">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="./images/activity/activity-1.png" alt="" />
+            </div>
+            <div class="swiper-slide">
+              <img src="./images/activity/activity-2.png" alt="" />
+            </div>
+            <div class="swiper-slide">
+              <img src="./images/activity/activity-3.png" alt="" />
+            </div>
+            <div class="swiper-slide">
+              <img src="./images/activity/activity-4.png" alt="" />
+            </div>
+            <div class="swiper-slide">
+              <img src="./images/activity/activity-5.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
     <!-- 케데헌 -->
     <!-- 인포 -->
+    <div class="wrapper">
+      <img src="images/info/info-bg.png" alt="배경이미지" />
+      <h3>Info</h3>
+      <div class="tabs">
+        <!-- <img src="images/info/info-bg.png" alt="" /> -->
+        <div class="tab">
+          <input
+            type="radio"
+            name="css-tabs"
+            id="tab-1"
+            checked
+            class="tab-switch"
+          />
+          <label for="tab-1" class="tab-label tab01">
+            <div class="info-tab-box">
+              <img
+                class="infoLogo"
+                src="images/info/Asset 4@4x.png"
+                alt="logo"
+              />
+            </div>
+            <!-- 번역 -->
+            <span>내부지도</span>
+          </label>
+          <div class="tab-content" id="tab-01">
+            <div class="info-map-item">
+              <img class="info-map" src="images/info/map.png" alt="내부지도" />
+              <div class="map-scr">
+                <p>① 으뜸관 상설전시실</p>
+                <p>② 특별전시실</p>
+                <p>③ 거울못</p>
+                <p>④ 푸드코트</p>
+                <p>⑤ 카페 / 편의점</p>
+                <p>⑥ 이촌역 (지하철)</p>
+                <p>⑦ 주차장</p>
+                <p><a href="#" class="read-more">더보기</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab">
+          <input type="radio" name="css-tabs" id="tab-2" class="tab-switch" />
+          <label for="tab-2" class="tab-label tab02">
+            <div class="info-tab-box">
+              <img
+                class="infoLogo"
+                src="images/info/Asset 4@4x.png"
+                alt="logo"
+              />
+            </div>
+            <span>관람시간</span>
+          </label>
+          <div class="tab-content" id="tab-02">
+            <div class="open_time">
+              <div class="sc-top">
+                <div class="sc-top-l">
+                  <p><strong> 관람 시간 </strong></p>
+                </div>
+                <div class="sc-top-r">
+                  <p>
+                    월, 화, 목, 금, 일: 10:00 ~ 18:00 (최종 입장: 17:30)<br />
+                    수, 토: 10:00 ~ 21:00 (최종 입장: 20:30)
+                  </p>
+                  <p>
+                    옥외 전시장(정원)은 오전 7시부터 오후 10시까지 관람하실 수
+                    있습니다.
+                  </p>
+                </div>
+              </div>
+              <div class="sc-bt-1">
+                <div class="sc-bt1-l">
+                  <p><strong>푸드코트</strong></p>
+                </div>
+                <div class="sc-bt1-r">
+                  <p>오후 9시 마감 (마지막 주문 20:30)<br /></p>
+                </div>
+              </div>
+              <div class="sc-bt-2">
+                <div class="sc-bt2-l">
+                  <p><strong>레스토랑</strong></p>
+                </div>
+                <div class="sc-bt2-r">
+                  <p>오후 9시 마감 (마지막 주문 20:30)<br /></p>
+                </div>
+              </div>
+              <div class="sc-bt-3">
+                <div class="sc-bt3-l">
+                  <p><strong>편의점</strong></p>
+                </div>
+                <div class="sc-bt3-r">
+                  <p>오후 9시 마감 (마지막 주문 20:30)</p>
+                  <a href="#" class="read-more">더보기</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab">
+          <input type="radio" name="css-tabs" id="tab-3" class="tab-switch" />
+          <label for="tab-3" class="tab-label tab03">
+            <div class="info-tab-box">
+              <img
+                class="infoLogo"
+                src="images/info/Asset 4@4x.png"
+                alt="logo"
+              />
+            </div>
+            <span> 오시는길 </span>
+          </label>
+          <div class="tab-content" id="tab-03">
+            <div class="info-diracr-item">
+              <img
+                class="info-diract"
+                src="images/info/direction.png"
+                alt="오시는길"
+              />
+              <div class="diract-scr">
+                <p>
+                  국립중앙박물관
+                  <br />
+                  주소: 서울특별시 용산구 서빙고로 137, 04383
+                  <br />
+                  (용산동6가 168-6)
+                </p>
+                <p>전화 02-2077-9000</p>
+                <a href="#" class="read-more">더보기</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- 하단 -->
+    <div class="footer_wrap">
+      <div class="footerinner">
+        <!-- 하단 top -->
+        <div class="footer_top">
+          <!-- 하단로고 -->
+          <div class="footerLogo"><a href="#">NATIONAL MUSEUM OF KOREA</a></div>
+          <!-- 하단 right -->
+          <div class="footer-right">
+            <!-- 하단 메뉴 -->
+            <ul class="footerMenu">
+              <li>Our Stories</li>
+              <li>Be A Hunter</li>
+              <li>For:eigner</li>
+              <li>e-Museum</li>
+              <li>MU:DS</li>
+            </ul>
+            <!-- 하단아이콘 -->
+            <div class="footerIcon">
+              <img src="images/display2/footer-icon.png" alt="SNS" />
+            </div>
+          </div>
+        </div>
+        <!-- 하단 bottom -->
+        <div class="footer-bottom">
+          <img src="images/display2/footer-sponsor.png" alt="sponsor" />
+          <span>© 2025 national Museum</span>
+        </div>
+      </div>
+    </div>
+    <!-- 퀵 메뉴 /gotop-->
+    <div class="fix-menu-wrap">
+      <a href="#" class="fix-menu">
+        <img src="images/display2/Group 204.png" alt="ticket" />
+        <img src="images/display2/Group 205.png" alt="ticket" />
+        <img src="images/display2/Group 206.png" alt="ticket" />
+        <img src="images/display2/ticket.png" alt="ticket" />
+        <span>Ticket OPEN!</span>
+      </a>
+      <div class="top-btn">
+        <img
+          src="images/display2/Group 199 2.png"
+          alt="top-btn"
+          class="top-btn-img"
+        />
+        <span>GOTOP</span>
+      </div>
+    </div>
   </body>
 </html>

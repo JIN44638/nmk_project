@@ -1,81 +1,88 @@
 .display1_wrap {
   background: url(../images/display1/display1background.png) no-repeat;
   background-size: cover;
+  height: 50vw;
 }
-.display1_wrap >.inner-display1 {
+.display1_wrap {
+  position: relative;
+}
+
+.display1_wrap > .inner-display1 {
   position: relative;
   width: 90%;
+  height: 44vw;
   max-width: 1300px;
-  
   margin: auto;
-  padding-top: 100px;
+  /* padding-top: 5%; */
 }
 
 .display1_wrap .inner-display1 > h1 {
   font-family: "Playfair Display", serif;
-  font-size: clamp(32px, 5vw, 70px);
+  font-size: clamp(24px, 3vw, 70px);
   color: #fff;
-  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.50);
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  padding-top: 3%;
 }
-
-
 .display1_wrap .swiper {
-  width: 100%;
-  max-width: 1100px;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  width: 80%;
+
+  aspect-ratio: 1.6/1;
+
+  padding-top: 5%;
+  /* padding-bottom: 2%; */
+  /* 초기 FOUC 방지: 스와이퍼 초기화 전 숨김 */
+  opacity: 0;
+  visibility: hidden;
+}
+.display1_wrap .swiper.swiper-initialized {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.2s ease-in;
 }
 .display1_wrap .swiper-slide {
-  /* background-position: center;
-  background-size: cover; */
-  /* width: 410px;
-  height: 540px; */
-  padding: 5% 2% 0 2%;
-  /* border-radius: 10px; */
-  overflow: hidden;
-  transition: all 0.3s;
-  /* background-color: black; */
+  width: 100%;
+  height: 100%;
+  /* width: 300px; */
   display: flex;
+  padding: 3% 3% 2% 3%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* glass효과 */
-    backdrop-filter: blur(20px);
+
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s;
+  backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
 }
 .display1_wrap .swiper-slide img {
-  width: 80%; /* 이미지 80% */
-  /* height: auto; */
-  display: block;
-  /* object-fit: contain; */
-  filter: brightness(0.6);
-  /* transition: all 0.3s; */
+  width: 80%;
+  /* height: 100%; */
+  object-fit: cover;
+  filter: brightness(0.5);
+  transition: all 0.3s;
 }
-
-
-
-/* 가운데 활성화된 슬라이드만 원래 크기 */
 .display1_wrap .swiper-slide-active img {
-  filter: brightness(1.2);
+  width: 100% !important;
+  height: 100% !important;
+  filter: brightness(1) !important;
 }
-
-/* 앞뒤 슬라이드는 살짝 크게 (옵션) */
-/* .display1Swiper .swiper-slide-prev,
-.display1Swiper .swiper-slide-next {
-  z-index: 5;
-} */
-.display1_wrap .swiper-slide > p {
+.display1_wrap .swiper-slide >p {
   color: #fff;
-  text-align: center;
-  padding: 20px;
-  font-size: clamp(11px, 3vw, 16px);
+  margin-top: 15px;
+  font-size: clamp(12px, 1vw, 22px);
 }
-@media screen and (max-width: 550px) {
-.display1_wrap .swiper-slide {
-   padding: 10% 5% 0 5%
+@media screen and (max-width: 1580px) {
+  .display1_wrap .swiper {
+    width: 70%;
   }
-  .display1_wrap .swiper-slide > p{
-   padding: 7px;
+}
+@media screen and (max-width: 790px) {
+  .display1_wrap .swiper-slide{
+    padding: 5% ;
   }
+ .display1_wrap .swiper-slide> p{
+ font-size: clamp(12px, 0.5vw, 14px);
+ }
 }

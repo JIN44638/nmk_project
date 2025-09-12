@@ -1,18 +1,22 @@
 window.addEventListener("load", function () {
-  var display1Swiper = new Swiper(".display1Swiper", {
+  // ✅ 이미지 다 로드된 뒤 강제로 업데이트
+
+  const display1_wrap = new Swiper(".display1_wrap .swiper", {
     effect: "coverflow",
     grabCursor: true,
-    centeredSlides: true, // ✅ 가운데 정렬
+    centeredSlides: true,
+    slidesPerView: "auto",
     slidesPerView: 2, // ✅ 3장만 보이게
-    spaceBetween: 30,
+
     coverflowEffect: {
       rotate: 0,
       stretch: 0,
-      depth: 200,
-      modifier: 2.5,
-      slideShadows: true,
+      depth: 400,
+      modifier: 1,
+      slideShadows: false,
+      scale: 0.8,
     },
-    loop: true, // 무한 반복
+    loop: true,
     autoplay: {
       delay: 2500,
       disableOnInteraction: false,

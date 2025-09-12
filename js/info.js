@@ -1,0 +1,1 @@
+const infoLogo =document.querySelectorAll(".infoLogo")

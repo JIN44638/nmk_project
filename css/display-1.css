@@ -2,9 +2,9 @@
   background: url(../images/display1/display1background.png) no-repeat;
   background-size: cover;
 }
-.display1_wrap .container {
+.display1_wrap >.inner-display1 {
   position: relative;
-  width: 100%;
+  width: 90%;
   max-width: 1300px;
   
   margin: auto;
@@ -14,6 +14,8 @@
 .display1_wrap .inner-display1 > h1 {
   font-family: "Playfair Display", serif;
   font-size: clamp(32px, 5vw, 70px);
+  color: #fff;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.50);
 }
 
 
@@ -24,28 +26,31 @@
   padding-bottom: 50px;
 }
 .display1_wrap .swiper-slide {
-  background-position: center;
-  background-size: cover;
+  /* background-position: center;
+  background-size: cover; */
   /* width: 410px;
   height: 540px; */
-  padding: 5% 5% 0 5%;
-  aspect-ratio: 1/1;
+  padding: 5% 2% 0 2%;
   /* border-radius: 10px; */
   overflow: hidden;
   transition: all 0.3s;
-  background-color: black;
+  /* background-color: black; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  /* glass효과 */
+    backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
 }
 .display1_wrap .swiper-slide img {
   width: 80%; /* 이미지 80% */
-  height: auto;
+  /* height: auto; */
   display: block;
-  object-fit: contain;
+  /* object-fit: contain; */
   filter: brightness(0.6);
-  transition: all 0.3s;
+  /* transition: all 0.3s; */
 }
 
 
@@ -56,12 +61,21 @@
 }
 
 /* 앞뒤 슬라이드는 살짝 크게 (옵션) */
-.display1Swiper .swiper-slide-prev,
+/* .display1Swiper .swiper-slide-prev,
 .display1Swiper .swiper-slide-next {
   z-index: 5;
-}
+} */
 .display1_wrap .swiper-slide > p {
   color: #fff;
   text-align: center;
   padding: 20px;
+  font-size: clamp(11px, 3vw, 16px);
+}
+@media screen and (max-width: 550px) {
+.display1_wrap .swiper-slide {
+   padding: 10% 5% 0 5%
+  }
+  .display1_wrap .swiper-slide > p{
+   padding: 7px;
+  }
 }

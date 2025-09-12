@@ -3,6 +3,7 @@
 .wrapper {
   width: 100%;
   margin: 0 auto;
+  margin-top: 100px;
   position: relative;
   background-color: #000000;
   color: #fff;
@@ -10,7 +11,8 @@
   overflow: hidden;
   padding-bottom: 600px;
 }
-.wrapper > h2 {
+.wrapper > h3 {
+  font-family: "Playfair Display", serif !important;
   font-size: 85px;
   padding-left: 10%;
   padding-bottom: 3%;
@@ -309,6 +311,11 @@
     max-width: 400px;
     text-align: left;
   }
+
+  #tab-02 {
+    padding: 5rem 2rem 2rem 5rem;
+  }
+
   /* 오프닝하워 */
   .sc-top,
   .sc-bt-1,
@@ -336,7 +343,15 @@
   .sc-bt3-r > a {
     text-align: right;
   }
-  /* 오시는길 */
+
+  .tab-label {
+    gap: 0.01rem;
+    align-items: center;
+  }
+  .tab-label .infoLogo {
+    width: 25px; /* 원래보다 작게 */
+    height: auto; /* 비율 유지 */
+  }
 }
 @media (max-width: 650px) {
   .info-map-item {
@@ -407,6 +422,7 @@
 
   .tab-content {
     border-top: none;
+    padding: 2rem 1rem 1rem 1rem;
   }
   .tab-label > span {
     font-size: clamp(14px, 1vw, 16px);
@@ -414,8 +430,12 @@
   }
 }
 @media (max-width: 500px) {
-  .tab-content {
-    padding: 5rem 2rem 2rem 2rem;
+  #tab-02 {
+    padding: 2rem 1rem 1rem 1rem;
+    /* 
+    여기에서의 tab 2 의 padding 을 조절하고싶다
+    
+    */
   }
 }
 @media (max-width: 380px) {
@@ -442,7 +462,7 @@
     max-width: 400px;
   }
   #tab-02 {
-    padding: 5rem 1rem 1rem 1rem;
+    padding: 2rem 1rem 1rem 1rem;
   }
   .map-scr {
     width: 100%;

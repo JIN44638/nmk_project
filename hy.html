@@ -87,58 +87,91 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
     <!-- hy-header css and js -->
-<link rel="stylesheet" href="css/hy-header.css">
-<script src="js/hy-header.js"></script>
-
+    <link rel="stylesheet" href="css/hy-header.css" />
+    <script src="js/hy-header.js"></script>
   </head>
   <body>
     <!-- 상단 -->
-  <header class="hamnav-header">
-  <div class="hamnav-header__inner">
-    <button id="hamburger">☰</button>
-  </div>
-</header>
+      <!-- 기본 헤더 -->
+  <div class="header-wrap">
+    <header class="header">
+      <div class="inner">
+        <!-- 로고 영역 -->
+        <a href="">
+          <div class="header-logo">
+            <!-- 아이콘 로고 -->
+            <div class="logo-1">
+              <img src="./images/header/logo-1.png" alt="아이콘 로고" />
+            </div>
+            <!-- 글자 로고 -->
+            <div class="logo-2">
+              <img src="./images/header/logo-2.png" alt="글자 로고" />
+            </div>
+          </div>
+        </a>
 
-<nav id="ham-nav">
-  <!-- 메인 메뉴 -->
-  <div class="panel main-panel">
-    <ul>
-      <li><a href="#" data-target="sub-design">디자인 문구</a></li>
-      <li><a href="#" data-target="sub-furn">가구/수납</a></li>
-      <li><a href="#" data-target="sub-fabric">패브릭 생활</a></li>
-    </ul>
-  </div>
-
-  <!-- 서브 메뉴들 (HTML에 직접 작성) -->
-  <div class="panel sub-panel" id="sub-design">
-    <button class="back-btn">← 뒤로</button>
-    <ul>
-      <li><a href="#">다이어리</a></li>
-      <li><a href="#">플래너</a></li>
-      <li><a href="#">오거나이저</a></li>
-    </ul>
-  </div>
-
-  <div class="panel sub-panel" id="sub-furn">
-    <button class="back-btn">← 뒤로</button>
-    <ul>
-      <li><a href="#">수납/정리</a></li>
-      <li><a href="#">홈/오피스가구</a></li>
-      <li><a href="#">주방가구</a></li>
-    </ul>
+        <!-- 아이콘 영역 -->
+        <div class="header-icon">
+       >
+          <div class="search-icon">
+            <button id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+          </div>
+        
+          <div class="menu-icon">
+            <button id="hamburger"><i class="fa-solid fa-bars"></i></button>
+          </div>
+        </div>
+      </div>
+    </header>
   </div>
 
-  <div class="panel sub-panel" id="sub-fabric">
-    <button class="back-btn">← 뒤로</button>
-    <ul>
-      <li><a href="#">침구</a></li>
-      <li><a href="#">홈케어</a></li>
-      <li><a href="#">욕실용품</a></li>
-    </ul>
+  <!-- 햄버거 네비게이션 -->
+  <nav id="ham-nav">
+    <!-- 메인 메뉴 -->
+    <div class="panel main-panel">
+      <ul>
+        <li><a href="#" data-target="sub-design">디자인 문구</a></li>
+        <li><a href="#" data-target="sub-furn">가구/수납</a></li>
+        <li><a href="#" data-target="sub-fabric">패브릭 생활</a></li>
+      </ul>
+    </div>
+
+    <!-- 서브 메뉴들 -->
+    <div class="panel sub-panel" id="sub-design">
+      <button class="back-btn">뒤로 ➜</button>
+      <ul>
+        <li><a href="#">다이어리</a></li>
+        <li><a href="#">플래너</a></li>
+        <li><a href="#">오거나이저</a></li>
+      </ul>
+    </div>
+
+    <div class="panel sub-panel" id="sub-furn">
+      <button class="back-btn">뒤로 ➜</button>
+      <ul>
+        <li><a href="#">수납/정리</a></li>
+        <li><a href="#">홈/오피스가구</a></li>
+        <li><a href="#">주방가구</a></li>
+      </ul>
+    </div>
+
+    <div class="panel sub-panel" id="sub-fabric">
+      <button class="back-btn">뒤로 ➜</button>
+      <ul>
+        <li><a href="#">침구</a></li>
+        <li><a href="#">홈케어</a></li>
+        <li><a href="#">욕실용품</a></li>
+      </ul>
+    </div>
+  </nav>
+  <!-- 서치바 모달 -->
+<div id="search-modal" class="search-modal">
+  <div class="search-modal_content">
+    <input type="text" placeholder="검색어를 입력하세요" />
   </div>
-</nav>
+</div>
 
     <!-- 메인 배너 -->
     <!-- 리뷰 -->
@@ -155,7 +188,7 @@
 
     <div class="wrapper">
       <img src="images/info/info-bg.png" alt="배경이미지" />
-      <h2>info</h2>
+      <h3>info</h3>
       <div class="tabs">
         <!-- <img src="images/info/info-bg.png" alt="" /> -->
         <div class="tab">
@@ -175,115 +208,111 @@
               />
             </div>
             <!-- 번역 -->
-      <span>내부지도</span>
-</label>
-<div class="tab-content" id="tab-01">
-  <div class="info-map-item">
-    <img class="info-map" src="images/info/map.png" alt="내부지도" />
-    <div class="map-scr">
-      <p>① 으뜸관 상설전시실</p>
-      <p>② 특별전시실</p>
-      <p>③ 거울못</p>
-      <p>④ 푸드코트</p>
-      <p>⑤ 카페 / 편의점</p>
-      <p>⑥ 이촌역 (지하철)</p>
-      <p>⑦ 주차장</p>
-      <p><a href="#" class="read-more">더보기</a></p>
-    </div> 
-  </div>
-</div>
-</div>
-<div class="tab">
-  <input type="radio" name="css-tabs" id="tab-2" class="tab-switch" />
-  <label for="tab-2" class="tab-label tab02">
-    <div class="info-tab-box">
-      <img
-        class="infoLogo"
-        src="images/info/Asset 4@4x.png"
-        alt="logo"
-      />
-    </div>
-    <span>관람시간</span>
-  </label>
-  <div class="tab-content" id="tab-02">
-    <div class="open_time">
-      <div class="sc-top">
-        <div class="sc-top-l">
-          <p><strong> 관람 시간 </strong></p>
+            <span>내부지도</span>
+          </label>
+          <div class="tab-content" id="tab-01">
+            <div class="info-map-item">
+              <img class="info-map" src="images/info/map.png" alt="내부지도" />
+              <div class="map-scr">
+                <p>① 으뜸관 상설전시실</p>
+                <p>② 특별전시실</p>
+                <p>③ 거울못</p>
+                <p>④ 푸드코트</p>
+                <p>⑤ 카페 / 편의점</p>
+                <p>⑥ 이촌역 (지하철)</p>
+                <p>⑦ 주차장</p>
+                <p><a href="#" class="read-more">더보기</a></p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="sc-top-r">
-          <p>
-            월, 화, 목, 금, 일: 10:00 ~ 18:00 (최종 입장: 17:30)<br />
-            수, 토: 10:00 ~ 21:00 (최종 입장: 20:30)
-          </p>
-          <p>
-            옥외 전시장(정원)은 오전 7시부터 오후 10시까지 관람하실 수 있습니다.
-          </p>
+        <div class="tab">
+          <input type="radio" name="css-tabs" id="tab-2" class="tab-switch" />
+          <label for="tab-2" class="tab-label tab02">
+            <div class="info-tab-box">
+              <img
+                class="infoLogo"
+                src="images/info/Asset 4@4x.png"
+                alt="logo"
+              />
+            </div>
+            <span>관람시간</span>
+          </label>
+          <div class="tab-content" id="tab-02">
+            <div class="open_time">
+              <div class="sc-top">
+                <div class="sc-top-l">
+                  <p><strong> 관람 시간 </strong></p>
+                </div>
+                <div class="sc-top-r">
+                  <p>
+                    월, 화, 목, 금, 일: 10:00 ~ 18:00 (최종 입장: 17:30)<br />
+                    수, 토: 10:00 ~ 21:00 (최종 입장: 20:30)
+                  </p>
+                  <p>
+                    옥외 전시장(정원)은 오전 7시부터 오후 10시까지 관람하실 수
+                    있습니다.
+                  </p>
+                </div>
+              </div>
+              <div class="sc-bt-1">
+                <div class="sc-bt1-l">
+                  <p><strong>푸드코트</strong></p>
+                </div>
+                <div class="sc-bt1-r">
+                  <p>오후 9시 마감 (마지막 주문 20:30)<br /></p>
+                </div>
+              </div>
+              <div class="sc-bt-2">
+                <div class="sc-bt2-l">
+                  <p><strong>레스토랑</strong></p>
+                </div>
+                <div class="sc-bt2-r">
+                  <p>오후 9시 마감 (마지막 주문 20:30)<br /></p>
+                </div>
+              </div>
+              <div class="sc-bt-3">
+                <div class="sc-bt3-l">
+                  <p><strong>편의점</strong></p>
+                </div>
+                <div class="sc-bt3-r">
+                  <p>오후 9시 마감 (마지막 주문 20:30)</p>
+                  <a href="#" class="read-more">더보기</a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="sc-bt-1">
-        <div class="sc-bt1-l">
-          <p><strong>푸드코트</strong></p>
-        </div>
-        <div class="sc-bt1-r">
-          <p>오후 9시 마감 (마지막 주문 20:30)<br /></p>
-        </div>
-      </div>
-      <div class="sc-bt-2">
-        <div class="sc-bt2-l">
-          <p><strong>레스토랑</strong></p>
-        </div>
-        <div class="sc-bt2-r">
-          <p>오후 9시 마감 (마지막 주문 20:30)<br /></p>
-        </div>
-      </div>
-      <div class="sc-bt-3">
-        <div class="sc-bt3-l">
-          <p><strong>편의점</strong></p>
-        </div>
-        <div class="sc-bt3-r">
-          <p>오후 9시 마감 (마지막 주문 20:30)</p>
-          <a href="#" class="read-more">더보기</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="tab">
-  <input type="radio" name="css-tabs" id="tab-3" class="tab-switch" />
-  <label for="tab-3" class="tab-label tab03">
-    <div class="info-tab-box">
-      <img
-        class="infoLogo"
-        src="images/info/Asset 4@4x.png"
-        alt="logo"
-      />
-    </div>
-    <span> 오시는길 </span>
-  </label>
-  <div class="tab-content" id="tab-03">
-    <div class="info-diracr-item">
-      <img
-        class="info-diract"
-        src="images/info/direction.png"
-        alt="오시는길"
-      />
-      <div class="diract-scr">
-        <p>
-          국립중앙박물관
-          <br />
-          주소: 서울특별시 용산구 서빙고로 137, 04383
-          <br />
-          (용산동6가 168-6)
-        </p>
-        <p>전화 02-2077-9000</p>
-        <a href="#" class="read-more">더보기</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-              <!-- 번역 -->
+        <div class="tab">
+          <input type="radio" name="css-tabs" id="tab-3" class="tab-switch" />
+          <label for="tab-3" class="tab-label tab03">
+            <div class="info-tab-box">
+              <img
+                class="infoLogo"
+                src="images/info/Asset 4@4x.png"
+                alt="logo"
+              />
+            </div>
+            <span> 오시는길 </span>
+          </label>
+          <div class="tab-content" id="tab-03">
+            <div class="info-diracr-item">
+              <img
+                class="info-diract"
+                src="images/info/direction.png"
+                alt="오시는길"
+              />
+              <div class="diract-scr">
+                <p>
+                  국립중앙박물관
+                  <br />
+                  주소: 서울특별시 용산구 서빙고로 137, 04383
+                  <br />
+                  (용산동6가 168-6)
+                </p>
+                <p>전화 02-2077-9000</p>
+                <a href="#" class="read-more">더보기</a>
+              </div>
             </div>
           </div>
         </div>

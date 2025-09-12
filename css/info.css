@@ -10,7 +10,9 @@
   overflow: hidden;
   padding-bottom: 600px;
 }
-.wrapper > h2 {
+
+.wrapper > h3 {
+  font-family: "Playfair Display", serif;
   font-size: 85px;
   padding-left: 10%;
   padding-bottom: 3%;
@@ -271,9 +273,7 @@
   text-align: right;
   display: block;
 }
-/* info-active */
-.info-active {
-}
+
 .info-tab-box {
   display: inline-block;
   width: 30px;
@@ -461,3 +461,4 @@
     gap: 0.01rem; /* 로고 줄였으니 글자와 간격도 살짝 줄임 */
   }
 }
+

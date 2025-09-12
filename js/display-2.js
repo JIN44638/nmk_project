@@ -1,10 +1,10 @@
 window.addEventListener("load", function () {
-  var swiper = new Swiper(".display2Swiper", {
+  var display2Swiper = new Swiper(".display2Swiper", {
     effect: "coverflow",
     grabCursor: true,
     centeredSlides: true, // ✅ 가운데 정렬
     slidesPerView: 2, // ✅ 3장만 보이게
-spaceBetween: 30,   
+    spaceBetween: 30,
     coverflowEffect: {
       rotate: 0,
       stretch: 0,

@@ -85,47 +85,44 @@
 .fix-menu-wrap {
   position: fixed;
   bottom: 60px;
-  right: 30px;
+  right: 20px;
   z-index: 9999;
-  /* display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px; */
+ 
 }
 .fix-menu-wrap > .fix-menu {
   display: flex;
-  flex-direction: column;
+  flex-direction: row-reverse;
   position: relative;
   gap: 5px;
 }
 .fix-menu-wrap > .fix-menu > img {
-  width: 75px;
+  width: 65px;
 }
 .fix-menu-wrap > .fix-menu > span {
-  background-color: #000000;
-  color: #D8A2B3;
+  background-color: #ffffff;
+  color: #000000;
+  /* line-height: 20px; */
   border-radius: 10px;
   font-weight: 800;
   position: relative;
-  bottom: 30px;
-  left: 70px;
-  padding: 5px;
-  border-radius: 23px;
-  text-align: center;
+  bottom: 0px;
+  left: -10px;
+  padding: 3px ;
+   text-align: center;
   box-shadow: 0px 3px 7px 0 rgb(0, 0, 0, 0.3);
-  /* display: none; */
-   /* opacity: 0;
+  display: none; 
+ opacity: 0;
   visibility: hidden;
-  transition: all 0.3s; */
+  transition: all 0.3s;
 }
 
 .fix-menu-wrap > .fix-menu:hover span {
-  /* display: block; */
-   /* opacity: 1;
-  visibility: visible; */
+  display: block; 
+  opacity: 1;
+  visibility: visible;
 }
 .fix-menu-wrap > .top-btn {
-   position: relative;
+  position: relative;
   /* width: 65px; */
   /* line-height: 55px; */
   border-radius: 50%;
@@ -134,17 +131,9 @@
   flex-direction: column;
   /* box-shadow: 0px 3px 7px 0 rgb(0, 0, 0, 0.3); */
 }
-.fix-menu-wrap  .top-btn-img {
-  /* position: absolute;
-  bottom: 0;
-  right: 0; */
-  z-index: 99999;
-  width: 75px;
-  border-radius: 100%;
-  background-color: rgb(42, 39, 49);
-}
 
-.fix-menu-wrap > .top-btn > span {
+
+/* .fix-menu-wrap > .top-btn > span {
   background-color: #000000;
   color: #D8A2B3;
   border-radius: 10px;
@@ -157,13 +146,12 @@
   text-align: center;
   box-shadow: 0px 3px 7px 0 rgb(0, 0, 0, 0.3);
   /* display: none; */
-   opacity: 0;
+/* opacity: 0;
   visibility: hidden;
   transition: all 0.3s;
-}
+} */
 
-.fix-menu-wrap > .top-btn:hover span {
+/* .fix-menu-wrap > .top-btn:hover span {
   /* display: block; */
-   opacity: 1;
-  visibility: visible;
-}
+/* opacity: 1;
+  visibility: visible; */

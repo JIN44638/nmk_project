@@ -6,13 +6,21 @@
     <title>Document</title>
 
     <!-- seo 엔진 최적화 -->
-    <meta name="description" content="Discover the rich history and cultural heritage of Korea at the National Museum of Korea. A must-visit destination for international tourists." />
-    <meta name="keywords" content="National Museum of Korea, Korean history, Korean culture, museums in Seoul, Korean artifacts, Korean art, cultural tourism, Korean heritage" />
+    <meta
+      name="description"
+      content="Discover the rich history and cultural heritage of Korea at the National Museum of Korea. A must-visit destination for international tourists." />
+    <meta
+      name="keywords"
+      content="National Museum of Korea, Korean history, Korean culture, museums in Seoul, Korean artifacts, Korean art, cultural tourism, Korean heritage" />
     <meta name="author" content="National Museum of Korea" />
-    <meta property="og:title" content="National Museum of Korea - Discover Korean History and Culture" />
+    <meta
+      property="og:title"
+      content="National Museum of Korea - Discover Korean History and Culture" />
     <meta property="og:site_name" content="National Museum of Korea" />
     <meta property="og:type" content="website" />
-    <meta property="og:description" content="Explore the National Museum of Korea and experience the history, art, and culture of Korea through ancient artifacts and exhibitions." />
+    <meta
+      property="og:description"
+      content="Explore the National Museum of Korea and experience the history, art, and culture of Korea through ancient artifacts and exhibitions." />
     <meta property="og:url" content="" />
     <meta property="og:image" content="" />
 
@@ -20,7 +28,9 @@
     <link rel="stylesheet" href="./css/main.css" />
 
     <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <!-- 영역별 css -->
     <link rel="stylesheet" href="css/header.css" />
@@ -40,98 +50,126 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
       integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
       crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+      referrerpolicy="no-referrer" />
   </head>
   <body>
     <!-- 상단 -->
-    <header class="header">
-      <div class="inner">
-        <!-- 로고 영역 -->
-        <a href="">
-          <div class="header-logo">
-            <!-- 아이콘 로고 -->
-            <div class="logo-1">
-              <img src="./images/header/logo-1.png" alt="아이콘 로고" />
+    <div class="header-wrap">
+      <header class="header">
+        <div class="inner">
+          <!-- 로고 영역 -->
+          <a href="">
+            <div class="header-logo">
+              <!-- 아이콘 로고 -->
+              <div class="logo-1">
+                <img src="./images/header/logo-1.png" alt="아이콘 로고" />
+              </div>
+              <!-- 글자 로고 -->
+              <div class="logo-2">
+                <img src="./images/header/logo-2.png" alt="글자 로고" />
+              </div>
             </div>
-            <!-- 글자 로고 -->
-            <div class="logo-2">
-              <img src="./images/header/logo-2.png" alt="글자 로고" />
-            </div>
-          </div>
-        </a>
+          </a>
 
-        <!-- 아이콘 영역 -->
-        <div class="header-icon">
-          <div class="search-icon">
-            <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
-          </div>
-          <div class="menu-icon">
-            <a href="#"><i class="fa-solid fa-bars"></i></a>
+          <!-- 아이콘 영역 -->
+          <div class="header-icon">
+            <div class="search-icon">
+              <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+            </div>
+            <div class="menu-icon">
+              <a href="#"><i class="fa-solid fa-bars"></i></a>
+            </div>
           </div>
         </div>
+      </header>
+      <!-- 메인 배너 -->
+      <div class="banner-wrap">
+        <div class="main-banner-video">
+          <video autoplay muted loop playsinline class="bg-video">
+            <source
+              src="./images/main-banner/main-banner-video.mp4"
+              type="video/mp4" />
+          </video>
+        </div>
+        <div class="main-banner-txt">
+          <h1>
+            NATIONAL MUSEUM <br />
+            OF KOREA
+          </h1>
+        </div>
       </div>
-    </header>
-
-    <!-- 메인 배너 -->
-    <div class="main-banner-video">
-      <video autoplay muted loop playsinline class="bg-video">
-        <source src="./images/header/main-banner-mp4.mp4" type="video/mp4" />
-      </video>
-    </div>
-    <div class="main-banner-txt">
-      <h1>
-        NATIONAL MUSEUM <br />
-        OF KOREA
-      </h1>
     </div>
 
     <!-- 리뷰 -->
-    <section class="review">
-      <div class="review-txt-1">
-        <p>
-          400만 명이 경험한 이유 <br />
-          지금 확인해 보세요.
-        </p>
-      </div>
-      <div class="review-txt-2">
-        <p>국립중앙박물관의 진짜 이야기는 여기 있습니다</p>
-      </div>
-      <div class="swiper-container">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide"><img src="./images/review/review1.png" alt="리뷰 이미지 1" /></div>
-          <div class="swiper-slide"><img src="./images/review/review2.png" alt="리뷰 이미지 2" /></div>
-          <div class="swiper-slide"><img src="./images/review/review3.png" alt="리뷰 이미지 3" /></div>
-          <div class="swiper-slide"><img src="./images/review/review4.png" alt="리뷰 이미지 4" /></div>
-          <div class="swiper-slide"><img src="./images/review/review5.png" alt="리뷰 이미지 5" /></div>
+    <div class="review-wrap">
+      <section class="review">
+        <div class="review-txt-1">
+          <p>
+            400만 명이 경험한 이유 <br />
+            지금 확인해 보세요.
+          </p>
         </div>
-      </div>
-    </section>
-
-    <!-- 액티비티 -->
-    <section class="activity">
-      <div class="activity-txt">
-        <h1>국립 중앙 박물관을<br>생생하게 체험해 보세요.</h1>
-        <h6>모두를 위한 열린 무대, 함께 즐기는 문화의 장</h6>
-        <div class="goto">
-          <h3><a href="#">go to experience</a></h3>
-          <div class="imgbox">
-            <img src="./images/activity/arrow.png" alt="화살표 사진" />
+        <div class="review-txt-2">
+          <p>국립중앙박물관의 진짜 이야기는 여기 있습니다</p>
+        </div>
+        <div class="swiper-container-review">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="./images/review/review1.png" alt="리뷰 이미지 1" />
+            </div>
+            <div class="swiper-slide">
+              <img src="./images/review/review2.png" alt="리뷰 이미지 2" />
+            </div>
+            <div class="swiper-slide">
+              <img src="./images/review/review3.png" alt="리뷰 이미지 3" />
+            </div>
+            <div class="swiper-slide">
+              <img src="./images/review/review4.png" alt="리뷰 이미지 4" />
+            </div>
+            <div class="swiper-slide">
+              <img src="./images/review/review5.png" alt="리뷰 이미지 5" />
+            </div>
           </div>
         </div>
-      </div>
+      </section>
+    </div>
 
-      <!-- 카드 섹션 -->
-      <div class="swiper swiper-activity">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide"><img src="./images/activity/activity-1.png" alt="" /></div>
-          <div class="swiper-slide"><img src="./images/activity/activity-2.png" alt="" /></div>
-          <div class="swiper-slide"><img src="./images/activity/activity-3.png" alt="" /></div>
-          <div class="swiper-slide"><img src="./images/activity/activity-4.png" alt="" /></div>
-          <div class="swiper-slide"><img src="./images/activity/activity-5.png" alt="" /></div>
+    <!-- 액티비티 -->
+    <div class="activity-wrap">
+      <section class="activity">
+        <div class="activity-txt">
+          <h1>국립 중앙 박물관을<br />생생하게 체험해 보세요.</h1>
+          <h6>모두를 위한 열린 무대, 함께 즐기는 문화의 장</h6>
+          <div class="goto">
+            <h3><a href="#">go to experience</a></h3>
+            <div class="imgbox">
+              <img src="./images/activity/arrow.png" alt="화살표 사진" />
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+
+        <!-- 카드 섹션 -->
+        <div class="swiper swiper-activity">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="./images/activity/activity-1.png" alt="" />
+            </div>
+            <div class="swiper-slide">
+              <img src="./images/activity/activity-2.png" alt="" />
+            </div>
+            <div class="swiper-slide">
+              <img src="./images/activity/activity-3.png" alt="" />
+            </div>
+            <div class="swiper-slide">
+              <img src="./images/activity/activity-4.png" alt="" />
+            </div>
+            <div class="swiper-slide">
+              <img src="./images/activity/activity-5.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
 
     <!-- js (라이브러리) -->
     <script src="js/jquery-1.12.3.js"></script>

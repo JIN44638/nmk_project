@@ -1,9 +1,18 @@
-.header {
-  border-bottom: 1px solid #fff;
-  padding: 1.5vw 0;
+.header-wrap {
+  /* background-color: black; */
+  position: relative;
+  height: 100vh;
 }
 
-.inner {
+.header {
+  position: relative;
+  border-bottom: 1px solid #fff;
+  padding: 1.5vw 0;
+  z-index: 1;
+  /* background-color: red; */
+}
+
+.header .inner {
   width: 100%;
   max-width: 1700px;
   margin: auto;

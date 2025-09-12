@@ -1,12 +1,32 @@
-.main-banner .bg-video {
+.banner-wrap {
+  background-color: black;
   position: absolute;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 100%;
-  object-fit: cover; /* 꽉 채우기 */
-  z-index: -1;       /* 뒤로 보내기 */
+  height: 100vh; /* 화면 전체 높이 */
+  overflow: hidden; /* 넘치는 부분 잘라내기 */
+    /* z-index: -1; */
 }
 
+.main-banner-video {
+ 
+  width: 100%;
+  height: 100%;
+}
+
+.main-banner-video .bg-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 비율 유지 + 꽉 채우기 */
+
+}
+.main-banner-txt{
+  position: absolute;
+  top: 10%;
+  left: 0;
+
+}
 .main-banner-txt h1{
       font-family: "Montserrat", sans-serif;
       font-size: clamp(40px, 5vw, 90px);

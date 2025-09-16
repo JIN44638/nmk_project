@@ -1,483 +1,270 @@
-/* 레이아웃 */
-
-.wrapper {
+/* 전체 래퍼 */
+.info-wrap {
+  position: relative;
   width: 100%;
-  margin: 0 auto;
-  margin-top: 100px;
-  position: relative;
-  background-color: #000000;
-  color: #fff;
-  min-height: 100vh;
+  min-height: 700px;
+  background-color: #000;
   overflow: hidden;
-  padding-bottom: 600px;
+  color: #fff;
 }
 
-.wrapper > h3 {
-  font-family: "Playfair Display", serif;
-  font-size: 85px;
-  padding-left: 10%;
-  padding-bottom: 3%;
-  position: relative;
-  z-index: 99;
+/* 배경 */
+.info-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(15%);
+  z-index: 0;
 }
-.wrapper > *:not(img) {
+
+/* 내부 컨테이너 */
+.info-inner {
   position: relative;
   z-index: 1;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 5% 0;
 }
-.wrapper > img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%; /* 부모 높이에 맞춤 */
-  object-fit: cover; /* 비율 유지하며 꽉 채우기 */
-  filter: brightness(15%);
-  z-index: 0; /* 맨 뒤에 배치 */
+
+/* 제목 */
+.info-inner > h3 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(32px, 3vw, 70px);
+  margin-bottom: 2rem;
 }
-/* 탭 설정 */
+
+/* ---------------------- */
+/* 탭 영역 */
 .tabs {
-  position: relative;
-  width: 80%;
-  margin: auto;
-  background: rgba(0, 0, 0, 0);
-
-  /* height: 2rem; */ /* 추가 */
-  display: flex;
-  justify-content: space-between;
-  align-items: center; /* 추가 */
-  /* border-bottom: 1px solid #555;   추가 */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 버튼 3개 가로 배치 */
+  grid-auto-rows: auto;
+  /* border-bottom: 2px solid rgba(255,255,255,.2); */
+  gap: 0; /* 버튼 사이 여백 제거 */
 }
 
+.tab {
+  display: contents;
+}
+
+/* 탭 라벨 */
 .tab-label {
-  position: relative;
+  grid-row: 1;
   padding: 1rem;
   cursor: pointer;
-  align-items: flex-end;
-  flex: 1; /* 추가 */
-  display: flex; /* 추가 */
-  justify-content: center; /* 추가 */
-  gap: 0.5rem; /* 추가 */
-  border-bottom: none; /* 기존 border 제거 */
-  transition: color 0.3s ease, border-color 0.3s ease; /* 추가 */
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  color: #dbdbdbaa;
+  transition: color 0.3s ease;
+  border-bottom: 5px solid transparent;
 }
 
 .tab-label .infoLogo {
   opacity: 0;
+  width: clamp(15px , 5vw , 25px);
   transition: opacity 0.3s ease;
 }
 
-/* 활성화 */
-.tab-switch:checked + .tab-label {
-  color: #fff;
-}
-.tab-switch:checked + .tab-label::after {
-  content: "";
-  position: absolute;
-
-  bottom: 0; /* label의 밑에 붙임 */
-  left: -10px; /* 탭보다 좌우로 길게 */
-  right: -10px;
-  height: 5px; /* 선 두께 */
-  background-color: #fff;
-}
-
-.tab-switch:checked + .tab-label .infoLogo {
-  opacity: 1;
-}
-.tab-switch:checked + .tab-label span {
-  color: #fff;
-}
-/* 탭 제목 폰트 */
-.tab-label > span {
-  font-size: clamp(16px, 2vw, 25px);
-  color: #dbdbdbaa;
-}
-/* p 폰트*/
-.map-scr {
-  font-size: clamp(14px, 1.5vw, 20px);
-  line-height: 2;
-}
-
-.sc-top-r,
-.sc-bt1-r,
-.sc-bt2-r,
-.sc-bt3-r,
-.sc-top-l,
-.sc-bt1-l,
-.sc-bt2-l,
-.sc-bt3-l {
-  font-size: clamp(14px, 1.5vw, 20px);
-  line-height: 2;
-}
-.diract-scr {
-  font-size: clamp(14px, 1.5vw, 20px);
-  line-height: 2;
-}
-
-/* 탭 스위치 라디오 체크로 탭화면이 변경 */
+/* 라디오 숨김 */
 .tab-switch {
   display: none;
 }
-.tab-content {
-  width: 100%;
-  max-width: 1200px;
 
-  position: absolute;
-  top: 4rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1;
-
-  height: 600px;
-
-  padding: 5rem 2rem 2rem 2rem;
-
-  color: #ffffff;
-  opacity: 0;
-  transition: all 0.35s;
+/* 활성 탭 */
+.tab-switch:checked + .tab-label {
+  color: #fff;
+  border-bottom-color: #fff;
 }
-#tab-02 {
-  padding: 5rem 2rem 2rem 2rem;
-}
-.tab-content img {
-  width: 100%;
-}
-.tab-content::before {
-  content: "";
-}
-
-/* 탭 클릭시 */
-
-.tabs::before,
-.tabs::after {
-  content: "";
-  display: table;
-}
-
-.tabs::after {
-  clear: both;
-}
-
-.tab-content > img {
-  aspect-ratio: 16 / 9;
-}
-.tab-switch:checked + label + .tab-content {
-  z-index: 2;
+.tab-switch:checked + .tab-label .infoLogo {
   opacity: 1;
-  transition: all 0.35s;
 }
 
-/* 첫번째탭 info-map */
-#tab-01 {
-  width: 80%;
+/* 탭 콘텐츠 */
+.tab-content {
+  padding-top: 5%;
+  grid-column: 1 / -1; /* 전체 가로 차지 */
+  grid-row: 2;
+  display: none;
+  margin-top: 2rem;
 }
-/* 
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-반응형 가능범위
-1000px 이하에서는 줄내림으로 보인다.
-*/
+.tab-content {
+  max-height: 600px;
+  overflow-y: auto;
+}
+.tab-switch:checked + .tab-label + .tab-content {
+  display: block;
+}
+/* ---------------------- */
+
+/* 내부 지도 */
 .info-map-item {
-  width: 100%;
   display: flex;
   justify-content: center;
-  gap: 10%;
+  align-items: flex-start;
+  gap: 5%;
+  /* flex-wrap: wrap; */
 }
 .info-map {
-  width: 50%;
-  max-width: 350px;
+  flex: 0 1 auto;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  object-fit: contain;
 }
 .map-scr {
-  width: 30%;
+  max-width: 300px;
+  padding-top: 1%;
+  font-size: clamp(14px, 1.5vw, 20px);
   line-height: 2;
 }
-/* tab2 */
-#tab-02 {
-  width: 80%;
-}
-/* 
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-반응형 가능범위
-1090px 이하에서는 줄내림으로 보인다.
-*/
+
+/* 관람시간 */
 .open_time {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-.sc-top {
-  display: flex;
-  justify-content: space-around;
-}
+.sc-top,
 .sc-bt-1,
 .sc-bt-2,
 .sc-bt-3 {
   display: flex;
-  width: 100%;
-  justify-content: space-around;
-} /* 왼쪽 영역들 공통 스타일 */
-
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
 .sc-top-l,
 .sc-bt1-l,
 .sc-bt2-l,
 .sc-bt3-l {
-  width: 23%;
   line-height: 2;
+  width: 25%;
   text-align: right;
 }
-
-/* 오른쪽 영역들 공통 스타일 */
 .sc-top-r,
 .sc-bt1-r,
 .sc-bt2-r,
 .sc-bt3-r {
-  width: 60%;
   line-height: 2;
+  width: 70%;
   text-align: left;
 }
-/* tab3 */
-#tab-03 {
-  width: 80%;
-}
-.diract-scr {
+.sc-bt3-r > a {
   line-height: 2;
-  padding-left: 2%;
-  /* 
-  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-  패딩 래프트를 하는게 좋을지 
-  */
-  align-items: center;
+  display: block;
+  text-align: right;
 }
 
-.info-diract {
-  width: auto;
-  max-height: 350px;
+/* 오시는길 */
+.info-diracr-item {
+  display: flex;
+  justify-content: center;
+  gap: 5%;
+  /* flex-wrap: wrap; */
+  align-items: flex-start;
 }
 
-/* more color */
+.info-dir-img-box {
+  width: 100%;
+  max-width: 1200px; 
+}
+
+.info-dir-img-box img {
+  width: 100%;
+  height: auto;       
+  object-fit: contain;
+  display: block;
+}
+
+.diract-scr {
+  padding-top: 3%;
+  line-height: 2;
+  flex: 0 1 auto;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* 더보기 */
 .read-more {
   color: #dbdbdbaa;
   font-size: clamp(12px, 1.5vw, 18px);
   margin-left: auto;
   text-align: right;
 }
-.diract-scr {
-  text-align: right;
-}
-.diract-scr p {
-  text-align: left; /* 위 p는 왼쪽 */
-}
-.map-scr > p > a {
-  text-align: right;
-  display: block;
-}
-.sc-bt3-r > a {
-  text-align: right;
-  display: block;
-}
 
-.info-tab-box {
-  display: inline-block;
-  width: 30px;
-}
-.infoLogo {
-  width: 100%;
-  /* filter: brightness(0.3); */
-}
-
-/* 
-줄간격 띄우기 : 시간 오픈하워 통일시키기
-오타 수정
-지도에서 사진과 글자 띄우기
-*/
+/* 반응형 */
 @media (max-width: 950px) {
-  /* 박물관지도 */
-  .info-map-item {
+  .info-map-item,
+  .info-diracr-item {
     flex-direction: column;
     align-items: center;
-    gap: 20px;
-    width: 100%;
-    height: auto;
+    /* text-align: center; */
+    .read-more {
+      text-align: right;
+    }
   }
-
+  .info-map,
+  .info-diract,
+  .map-scr,
+  .diract-scr {
+    width: 100%;
+    max-width: 100%;
+  }
   .info-map {
-    flex: 0 0 auto;
-    width: 100%;
-    max-width: 400px;
+    max-width: 500px;
   }
-
   .map-scr {
-    width: 100%;
-    max-width: 400px;
-    text-align: left;
+    margin-left: 10%;
   }
-
-  #tab-02 {
-    padding: 5rem 2rem 2rem 5rem;
+  .open_time {
+    padding-left: 20%;
   }
-
-  /* 오프닝하워 */
-  .sc-top,
-  .sc-bt-1,
-  .sc-bt-2,
-  .sc-bt-3 {
-    flex-direction: column;
-  }
-
   .sc-top-l,
   .sc-bt1-l,
   .sc-bt2-l,
   .sc-bt3-l {
-    line-height: 2;
     text-align: left;
-    padding-left: 3px;
   }
   .sc-top-r,
   .sc-bt1-r,
   .sc-bt2-r,
   .sc-bt3-r {
     width: 100%;
-    line-height: 2;
     text-align: left;
   }
-  .sc-bt3-r > a {
-    text-align: right;
+}
+@media (max-width: 550px) {
+  .open_time {
+    padding-left: 010%;
   }
-
   .tab-label {
-    gap: 0.01rem;
-    align-items: center;
+    padding: 0;
+    padding-bottom: 1rem;
   }
-  .tab-label .infoLogo {
-    width: 25px; /* 원래보다 작게 */
-    height: auto; /* 비율 유지 */
-  }
-}
-@media (max-width: 650px) {
-  .info-map-item {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    width: 100%;
-    height: auto;
-  }
-
-  .info-map {
-    flex: 0 0 auto;
-    width: 100%;
-    max-width: 400px;
-  }
-
-  .map-scr {
-    width: 100%;
-    max-width: 400px;
-    text-align: left;
-  }
-
-  /* 글자 크기를 */
-  .tab-content {
-    width: 90%;
-  }
-
-  .tab-label {
-    padding: 5px;
-  }
-
-  .tabs {
-    width: 100%;
-    margin: 0; /* 중복 제거 */
-  }
-  .tab {
-    width: calc(80% / 3);
-  }
-  #tab-01,
-  #tab-02,
-  #tab-03 {
-    width: 95%;
-    padding: auto;
-    padding-top: 10%;
-  }
-  #tab-02 {
-    padding: 5rem 2rem 2rem 5rem;
-  }
-  .wrapper {
-    padding-bottom: 0;
-  }
-
-  /* 기존 border 제거 + ::after로 선 표시 */
-  .tab-switch:checked + .tab-label {
-    color: #fff;
-    border-bottom: none; /* 기존 선 제거 */
-  }
-
-  .tab-switch:checked + .tab-label::after {
-    content: "";
-    position: absolute;
-    bottom: 0; /* label의 밑에 붙임 */
-    left: 0px; /* 좌우로 조금 더 */
-    right: 0px;
-    height: 5px; /* 선 두께 */
-    background-color: #fff;
-  }
-
-  .tab-content {
-    border-top: none;
-    padding: 2rem 1rem 1rem 1rem;
-  }
-  .tab-label > span {
-    font-size: clamp(14px, 1vw, 16px);
-    color: #dbdbdbaa;
-  }
-}
-@media (max-width: 500px) {
-  #tab-02 {
-    padding: 2rem 1rem 1rem 1rem;
-    /* 
-    여기에서의 tab 2 의 padding 을 조절하고싶다
-    
-    */
-  }
-}
-@media (max-width: 380px) {
-  .info-map-item {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    width: 100%;
-    height: auto;
-  }
-  .tab-label > span {
-    font-size: clamp(14px, 1vw, 14px);
-    color: #dbdbdbaa;
-  }
-  .tab-switch:checked + label {
-    /* background-color: red; */
-    padding-bottom: 6px;
-    border-bottom: 8px solid #fff;
-    color: #fff;
-  }
-  .info-map {
-    flex: 0 0 auto;
-    width: 100%;
-    max-width: 400px;
-  }
-  #tab-02 {
-    padding: 2rem 1rem 1rem 1rem;
-  }
-  .map-scr {
-    width: 100%;
-    max-width: 400px;
-    text-align: left;
-  }
-  .tabs {
+  .info-diract {
+    height: 250px;
     margin: 0;
   }
-  .tab-label .infoLogo {
-    width: 25px; /* 원래보다 작게 */
-    height: auto; /* 비율 유지 */
+  .diract-scr{
+    padding: 0;
   }
-
-  .tab-label {
-    gap: 0.01rem; /* 로고 줄였으니 글자와 간격도 살짝 줄임 */
+  #tab-03{
+    padding-top: 0;
+    margin-top: 0;
+  }
+.info-wrap{
+  min-height: 500px;
+}
+}
+@media (max-width: 450px) {
+  .open_time {
+    padding-left: 0;
   }
 }
-

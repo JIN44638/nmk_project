@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>관람 안내 – National Museum of Korea</title>
+
+    <!-- 폰트어썸 -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Noto Sans KR", sans-serif;
+      }
+
+      /* 헤더 */
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 14px 22px;
+        background: rgba(10, 10, 12, 0.65);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid #ccc;
+        color: #fff;
+      }
+      .brand {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        cursor: pointer;
+      }
+      .brand svg {
+        width: 30px;
+        height: 30px;
+        fill: #fff;
+        opacity: 0.92;
+      }
+      .sub-title {
+        opacity: 0.7;
+        font-size: 14px;
+      }
+
+      /* 사이드 메뉴 */
+      .side-menu {
+        position: fixed;
+        top: 0;
+        left: -260px;
+        width: 250px;
+        height: 100vh;
+        background: #222;
+        color: #fff;
+        transition: left 0.3s ease;
+        padding: 80px 20px 20px;
+        z-index: 999;
+      }
+      .side-menu.open {
+        left: 0;
+      }
+      .side-menu ul {
+        list-style: none;
+      }
+      .side-menu li {
+        margin-bottom: 10px;
+      }
+      .side-menu a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 16px;
+      }
+      .side-menu a:hover {
+        text-decoration: underline;
+      }
+
+      /* 아코디언 */
+      .accordion-header {
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 16px;
+        width: 100%;
+        text-align: left;
+        padding: 8px 0;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .accordion-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.1s ease;
+        margin-left: 10px;
+      }
+      .accordion-item.open .accordion-content {
+        max-height: 300px; /* 충분히 큰 값 */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 심플 헤더 -->
+    <header class="site-header">
+      <div class="brand" id="brandBtn">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3 17h18v2H3v-2zm0-6h18v2H3v-2zm0-6h18v2H3V5z" />
+        </svg>
+        <b>National Museum of Korea</b>
+      </div>
+      <div class="sub-title">관람 안내</div>
+    </header>
+
+    <!-- 사이드 메뉴 (아코디언 포함) -->
+    <nav id="sideMenu" class="side-menu">
+      <ul>
+        <li class="accordion-item">
+          <button class="accordion-header">
+            관람 정보<i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <ul class="accordion-content">
+            <li><a href="#">이용 안내</a></li>
+            <li><a href="#">예약 안내</a></li>
+            <li><a href="#">자주 묻는 질문</a></li>
+          </ul>
+        </li>
+
+        <li class="accordion-item">
+          <button class="accordion-header">
+            전시 안내 <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <ul class="accordion-content">
+            <li><a href="#">상설 전시</a></li>
+            <li><a href="#">특별 전시</a></li>
+            <li><a href="#">E-박물관</a></li>
+          </ul>
+        </li>
+
+        <li class="accordion-item">
+          <button class="accordion-header">
+            문화 행사 <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <ul class="accordion-content">
+            <li><a href="#">케데헌 행사</a></li>
+            <li><a href="#">스템프 행사</a></li>
+            <li><a href="#">문화 체험</a></li>
+          </ul>
+        </li>
+
+        <li><a href="#">굿즈</a></li>
+        <li><a href="#">박물관 소개</a></li>
+        <li>
+          <div class="search-icon">
+            <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const brandBtn = document.querySelector("#brandBtn");
+        const sideMenu = document.querySelector("#sideMenu");
+
+        // 메뉴 열기/닫기
+        brandBtn.addEventListener("click", () => {
+          sideMenu.classList.toggle("open");
+        });
+
+        // 외부 클릭 시 닫기
+        document.addEventListener("click", (e) => {
+          if (!sideMenu.contains(e.target) && !brandBtn.contains(e.target)) {
+            sideMenu.classList.remove("open");
+          }
+        });
+
+        // 아코디언
+        const accordions = document.querySelectorAll(".accordion-item");
+        accordions.forEach((item) => {
+          const header = item.querySelector(".accordion-header");
+          header.addEventListener("click", () => {
+            // 다른 아코디언 닫기
+            accordions.forEach((i) => {
+              if (i !== item) i.classList.remove("open");
+            });
+            // 현재 토글
+            item.classList.toggle("open");
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

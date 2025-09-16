@@ -106,3 +106,11 @@
     padding-bottom: 32px;
   }
 }
+/* =============== Responsive =============== */
+@media (max-width: 390px) {
+  .activity-wrap {
+  padding-bottom: 0 !important;
+  height: 70vh;
+}
+
+}

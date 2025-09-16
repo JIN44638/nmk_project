@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>사유의 방 – National Museum of Korea</title>
+
+<!-- 헤딩/본문 폰트 -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+<style>
+/* ================================
+   0) 변수
+================================ */
+:root{
+  --bg-1:#0b0b0d;
+  --bg-2:#14141a;
+  --text:#e8e8ee;
+  --muted:#a6a6b2;
+  --accent:#ffae00;
+  --line:rgba(255,255,255,.10);
+  --radius:18px;
+  --shadow:0 14px 40px rgba(0,0,0,.55);
+}
+
+/* ================================
+   1) 기본
+================================ */
+*{
+  box-sizing:border-box;
+  margin: 0;
+  padding: 0;
+}
+html,body{height:100%}
+body{
+  margin:0;
+  color:var(--text);
+  font-family: Inter,"Pretendard","Noto Sans KR",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Malgun Gothic",sans-serif;
+  line-height:1.7;
+  background:linear-gradient(180deg,var(--bg-1),var(--bg-2));
+}
+
+.wrap{max-width:1140px; margin:0 auto; padding:0 20px}
+
+a{text-decoration: none;}
+
+/* ================================
+   2) 헤더
+================================ */
+.site-header{
+  position:sticky; top:0; z-index:50;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:14px 22px;
+  background:rgba(10,10,12,.65);
+  backdrop-filter: blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.brand a{display:block; color:white;}
+.brand{display:flex; align-items:center; gap:12px}
+.brand b{font-weight:700}
+
+/* ================================
+   3) 히어로
+================================ */
+.exhibit-hero{
+  padding:10vw 0 6vw;
+  text-align:center;
+  background:
+    radial-gradient(1200px 800px at 100% 0%, rgba(255,174,0,.12), transparent 60%),
+    linear-gradient(180deg,var(--bg-1),var(--bg-2));
+}
+.exhibit-hero .title{
+  font-family:"Playfair Display",serif;
+  font-weight:bold;
+  font-size:clamp(36px,5.2vw,76px);
+  line-height:1.06;
+  margin:0 0 1rem;
+  color:#ffb300;
+}
+.exhibit-hero .subtitle{color:var(--muted); margin:.25rem 0 1.25rem;}
+.location-pill{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:8px 14px; border-radius:999px;
+  background:rgba(255,255,255,.06);
+  border:1px solid var(--line);
+  color:#ffd76a; font-weight:700; letter-spacing:.02em;
+}
+
+/* ================================
+   4) 전면 배너
+================================ */
+.exhibit-banner{
+  margin:4vw auto 2vw;
+  border-radius:var(--radius);
+  overflow:hidden;
+  border:1px solid var(--line);
+  box-shadow:var(--shadow);
+}
+.exhibit-banner img{width:100%; display:block; object-fit:cover; aspect-ratio:21/7}
+
+/* ================================
+   5) 전시품 카드
+================================ */
+.exhibit-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+  gap:18px;
+  margin:2.5vw auto 1vw;
+}
+.exhibit-card{
+  background:linear-gradient(135deg, rgba(24,24,30,.78), rgba(12,12,16,.78));
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+  text-align:center;
+}
+.exhibit-card img{
+  width:100%; display:block; object-fit:cover; aspect-ratio:3/4;
+  transition: transform .35s ease, filter .35s ease;
+}
+.exhibit-card:hover img{ transform:scale(1.04); filter:brightness(1.06) }
+.exhibit-card .cap{ padding:12px 14px; font-weight:600 }
+
+/* ================================
+   6) 전시설명
+================================ */
+.exhibit-desc{max-width:840px; margin:3.5vw auto; color:#d6d6de;}
+.exhibit-desc p{margin:0 0 1rem}
+.exhibit-desc .highlight{
+  border-left:3px solid var(--accent);
+  padding-left:12px;
+  color:#fff;
+}
+
+/* ================================
+   7) 영상
+================================ */
+.exhibit-videos{ margin:4vw auto }
+.exhibit-videos h2{margin:0 0 14px; font-size:clamp(22px,2.2vw,32px);}
+.video-grid{
+  display:grid; gap:18px;
+  grid-template-columns: repeat(auto-fit, minmax(320px,1fr));
+}
+.video-grid iframe{
+  width:100%; aspect-ratio:16/9; border:none; border-radius:16px;
+  box-shadow:var(--shadow);
+}
+
+/* ================================
+   8) 빠른 링크
+================================ */
+.quick-links{margin:4vw auto 0;}
+.qgrid{display:grid; gap:18px; grid-template-columns: repeat(auto-fit, minmax(260px,1fr));}
+.qtile{
+  background:linear-gradient(135deg, rgba(26,26,32,.8), rgba(14,14,18,.72));
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:18px 20px;
+  color:var(--text); text-decoration:none;
+}
+.qtile:hover{ outline:1px solid rgba(255,174,0,.25) }
+
+/* ================================
+   9) 푸터 (꽉차게)
+================================ */
+.footer{
+  width:100%;
+  border-top:1px solid var(--line);
+  color:var(--muted);
+  font-size:14px;
+  margin:6vw 0 0;
+  padding:24px 40px;  /* 좌우 여백 */
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  background:rgba(20,20,26,0.9);
+}
+
+/* ================================
+   10) 반응형
+================================ */
+@media (max-width:640px){
+  .site-header{padding:12px 16px}
+  .exhibit-banner img{aspect-ratio:16/9}
+  .footer{flex-direction:column; text-align:center; gap:10px;}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="brand">
+    <a href="index.html"><b>National Museum of Korea</b></a>
+  </div>
+</header>
+
+<main>
+  <!-- 히어로 -->
+  <section class="exhibit-hero">
+    <div class="wrap">
+      <h1 class="title">Room of Contemplation</h1>
+      <p class="subtitle">Encounter the contemplation of the Pensive Bodhisattva in serene light</p>
+      <span class="location-pill">2F Exhibition Hall</span>
+    </div>
+  </section>
+
+  <!-- 전면 배너 -->
+  <section class="wrap exhibit-banner">
+    <img src="images/sayu/_aUkuvfdoKfr1DvQzSBqcChz7-nYSyT2qaZNMiio8jc1vr8pOj9LsIb2UHVHdgqAQpo6hzuHcZxkH457pURY5Q.webp" alt="Room of Contemplation Exhibition View" />
+  </section>
+
+  <!-- 전시품 카드 -->
+  <section class="wrap exhibit-grid" aria-label="Exhibits">
+    <article class="exhibit-card">
+      <img src="images/sayu/sayu-1.jpg" alt="Pensive Bodhisattva 1" />
+      <div class="cap">Pensive Bodhisattva (1)</div>
+    </article>
+    <article class="exhibit-card">
+      <img src="images/sayu/sayu-2.jpg" alt="Pensive Bodhisattva 2" />
+      <div class="cap">Pensive Bodhisattva (2)</div>
+    </article>
+  </section>
+
+  <!-- 전시설명 -->
+  <section class="wrap exhibit-desc">
+    <p>
+      The Room of Contemplation houses two of Korea’s most iconic Buddhist sculptures, the Pensive Bodhisattvas, placed side by side.
+      In the quiet darkness, subtle changes of expression created by light and shadow allow you to fully experience a moment of contemplation.
+    </p>
+    <p class="highlight">
+      Serenity, balance, and the aesthetics of emptiness. Discover the moment when your own contemplation begins.
+    </p>
+  </section>
+
+  <!-- 영상 -->
+  <section class="wrap exhibit-videos">
+    <h2>Related Videos</h2>
+    <div class="video-grid">
+      <iframe src="https://www.youtube.com/embed/9Nx-lSkyHI8" title="Room of Contemplation – A Space for Quiet Reflection" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/fweiKkCCeZc" title="National Museum of Korea & The Room of Contemplation" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <!-- 빠른 링크 -->
+  <section class="wrap quick-links">
+    <div class="qgrid">
+      <a class="qtile" href="#">Exhibition Guide</a>
+      <a class="qtile" href="#">Programs & Experiences</a>
+      <a class="qtile" href="#">Directions</a>
+    </div>
+  </section>
+</main>
+
+<!-- 꽉차는 footer -->
+<footer class="footer">
+  <div>Our Stories · Volunteer · Media Kit</div>
+  <div>© National Museum of Korea</div>
+</footer>
+
+</body>
+</html>

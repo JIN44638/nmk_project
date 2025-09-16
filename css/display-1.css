@@ -1,17 +1,11 @@
 .display1_wrap {
-  position: relative;
-  background: url("/images/display1/display1background.png");
-  /* height: 100vh; */
-  align-content: center;
-  background-size: cover, 100% 100%;
+  background: url(../images/display1/display1background.png) no-repeat;
   background-size: cover;
-  background-position: center, center;
-  background-repeat: no-repeat, no-repeat;
-  min-height: 100vh;
-  background-attachment: fixed, scroll;
+  background-position: center center;
+  height: 50vw;
   z-index: -1;
+  position: relative;
 }
-
 .display1_wrap-bg {
   position: absolute;
   width: 100%;
@@ -21,25 +15,24 @@
   background-color: rgba(0, 0, 0, 0.4);
   z-index: 111;
 }
-
 .display1_wrap > .inner-display1 {
   position: relative;
   width: 90%;
-  height: 100vh;
-  /* height: 44vh; */
+  height: 44vw;
   max-width: 1300px;
   margin: auto;
-
+  padding-top: 3%;
   z-index: 9999;
-  /* padding-top: 5%; */
 }
 
 .display1_wrap .inner-display1 > h1 {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(24px, 3vw, 70px);
+   /* font-family: "Playfair Display", serif; */
+  font-family:"Black Han Sans", sans-serif;
+  font-size: clamp(32px, 5vw, 70px);
+  /* font-size: clamp(32px, 3vw, 70px); */
   color: #fff;
   text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-  padding-top: 3%;
+  padding-top: 2%;
 }
 .display1_wrap .swiper {
   width: 80%;
@@ -92,15 +85,35 @@
   font-size: clamp(12px, 1vw, 22px);
 }
 @media screen and (max-width: 1580px) {
+  .display1_wrap {
+    height: 65vw;
+  }
   .display1_wrap .swiper {
-    width: 70%;
+    /* width: 70%; */
   }
 }
 @media screen and (max-width: 790px) {
+  .display1_wrap {
+    height: 60vw;
+  }
   .display1_wrap .swiper-slide {
     padding: 5%;
   }
   .display1_wrap .swiper-slide > p {
     font-size: clamp(12px, 0.5vw, 14px);
+  }
+}
+@media screen and (max-width: 500px) {
+  .display1_wrap {
+    height: 100vw;
+  }
+  .display1_wrap .swiper {
+    width: 100%;
+  }
+  .display1_wrap > .inner-display1 {
+    height: 100vw;
+  }
+  .display1_wrap .inner-display1 > h1 {
+    margin: 20px 0 50px 0;
   }
 }

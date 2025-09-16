@@ -14,339 +14,353 @@
     />
     <link rel="stylesheet" href="css/main.css" />
     <style>
-            /* ----------------------------------------- */
-            /* 공통 리셋 */
-            * {
-              margin: 0;
-              padding: 0;
-              box-sizing: border-box;
-            }
-            body {
-              font-family: "Noto Sans KR", sans-serif;
-              margin: 0;
-              color: var(--text);
-              line-height: 1.6;
-              background: linear-gradient(180deg, var(--bg-1), var(--bg-2));
-            }
+      /* ----------------------------------------- */
+      /* 공통 리셋 */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Noto Sans KR", sans-serif;
+        margin: 0;
+        color: var(--text);
+        line-height: 1.6;
+        background: linear-gradient(180deg, var(--bg-1), var(--bg-2));
+      }
 
-            :root {
-              --text: #fff;
-              --bg-1: #101010;
-              --bg-2: #1a1a1a;
-              --line: rgba(255, 255, 255, 0.2);
-              --muted: #aaa;
-              --accent: #ffae00;
-              --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-              --radius: 12px;
-            }
-
-            /* ========================헤더============================= */
-            .site-header {
-              position: sticky;
-              top: 0;
-              z-index: 9999;
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-              padding: 14px 22px;
-              background: rgba(10, 10, 12, 0.65);
-              backdrop-filter: blur(10px);
-              border-bottom: 1px solid var(--line);
-              color: #fff;
-            }
-            .brand {
-              display: flex;
-              gap: 12px;
-              align-items: center;
-              cursor: pointer;
-            }
-            .brand svg {
-              width: 30px;
-              height: 30px;
-              fill: #fff;
-              opacity: 0.92;
-            }
-            .sub-title {
-              opacity: 0.7;
-              font-size: 14px;
-            }
+      :root {
+        --text: #fff;
+        --bg-1: #101010;
+        --bg-2: #1a1a1a;
+        --line: rgba(255, 255, 255, 0.2);
+        --muted: #aaa;
+        --accent: #ffae00;
+        --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        --radius: 12px;
+      }
       /* ====================네비 로케이션============================= */
-      .navi-location{
+      .navi-location {
         width: 100%;
         margin: auto;
         max-width: 1500px;
-          color: #fff;
-      }
-
-            .navi-location > ul{
-              display: flex;
-            }
-            .navi-location > ul > li > a{
         color: #fff;
-       font-size: clamp(12px, 1.5vw, 18px);
       }
-    
-            /* ==============================사이드 메뉴============================== */
-            .side-menu {
-              position: fixed;
-              top: 0;
-              left: -260px;
-              width: 250px;
-              height: 100vh;
-              background: rgba(0, 0, 0, 0.8);
-              color: #fff;
-              transition: left 0.3s ease;
-              padding: 80px 20px 20px;
-              z-index: 999;
-            }
-            .side-menu.open {
-              left: 0;
-            }
-            .side-menu ul {
-              list-style: none;
-            }
-            .side-menu li {
-              margin-bottom: 10px;
-            }
-            .side-menu a {
-              color: #fff;
-              text-decoration: none;
-              font-size: 16px;
-            }
-            .side-menu a:hover {
-              text-decoration: underline;
-            }
 
-            /* ============================아코디언============================= */
-            .accordion-header {
-              background: none;
-              border: none;
-              color: #fff;
-              font-size: 16px;
-              width: 100%;
-              text-align: left;
-              padding: 8px 0;
-              cursor: pointer;
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-            }
-            .accordion-content {
-              max-height: 0;
-              overflow: hidden;
-              transition: max-height 0.1s ease;
-              margin-left: 10px;
-            }
-            .accordion-item.open .accordion-content {
-              max-height: 300px; /* 충분히 큰 값 */
-            }
+      .navi-location > ul {
+        display: flex;
+      }
+      .navi-location > ul > li > a {
+        color: #fff;
+        font-size: clamp(12px, 1.5vw, 18px);
+      }
 
-            /* ===========================레이아웃============================== */
-            .information-wrap {
-              width: 100%;
-            }
-            .information-wrap-inner {
-              width: 90%;
-              margin: auto;
-            }
-            .wrap {
-              max-width: 1140px;
-              margin: 40px auto 60px;
-              padding: 0 20px;
-            }
+      /* ===========바디 주의===================== */
+      body {
+        background-color: black;
+      }
+      /* =======================해더 앤 토글 시작============================== */
+      /* 헤더 */
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 99999;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 14px 22px;
+        background: rgba(10, 10, 12, 0.65);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid #ccc;
+        color: #fff;
+      }
+      .brand {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        cursor: pointer;
+      }
+      .brand svg {
+        width: 30px;
+        height: 30px;
+        fill: #fff;
+        opacity: 0.92;
+      }
+      .sub-title {
+        opacity: 0.7;
+        font-size: 14px;
+      }
 
-            /* =============================사진 영역============================= */
-            .info-image {
-              width: 100%;
-              margin: auto;
-            max-width: 1300px;
-            }
-            .info-image > img {
-              width: 100%;
-            
-            }
+      /* 사이드 메뉴 */
+      .side-menu {
+        position: fixed;
+        top: 0;
+        left: -260px;
+        width: 250px;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.9);
+        color: #fff;
+        transition: left 0.3s ease;
+        padding: 80px 20px 20px;
+        z-index: 999;
+      }
+      .side-menu.open {
+        left: 0;
+      }
+      .side-menu ul {
+        list-style: none;
+        padding: 0; /* 추가 */
+        margin: 0; /* 추가 */
+      }
+      .side-menu li {
+        margin: 0; /* 수정: 불필요한 여백 제거 */
+      }
+      .side-menu a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 16px;
+        display: block; /* 추가 */
+        padding: 12px 0; /* 추가: 일정한 간격 */
+        line-height: 1.5; /* 추가 */
+      }
+      .side-menu a:hover {
+        text-decoration: underline;
+      }
 
-            /* ===============================로케이션======================= */
-            .navi-location {
-              width: 100%;
-               max-width: 1300px;
-               margin: auto;
-            }
-            .navi-location > ul {
-              display: flex;
-              gap: 5px;
-            }
+      /* 아코디언 */
+      .accordion-header {
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 16px;
+        width: 100%;
+        text-align: left;
+        padding: 12px 0; /* 수정: 메뉴와 동일 간격 */
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        line-height: 1.5; /* 추가 */
+      }
+      .accordion-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease; /* 조금 더 부드럽게 */
+        margin-left: 10px;
+      }
+      .accordion-item.open .accordion-content {
+        max-height: 300px; /* 충분히 큰 값 */
+      }
+      /* =======================헤더 앤 토글 끝============================== */
 
-            /* ===========================히어로 영역=========================== */
-            .hero {
-              display: grid;
-              grid-template-columns: 1.4fr 0.9fr;
-              gap: 24px;
+      /* ===========================레이아웃============================== */
+      .information-wrap {
+        width: 100%;
+      }
+      .information-wrap-inner {
+        width: 90%;
+        margin: auto;
+      }
+      .wrap {
+        max-width: 1140px;
+        margin: 40px auto 60px;
+        padding: 0 20px;
+      }
 
-              margin: 0 auto 28px;
-              max-width: 1500px;
-              padding: 0 20px;
-            }
-            .hero-card {
-              border: 2px solid rgba(3, 3, 3, 0.2);
-              border-radius: 20px;
-              box-shadow: var(--shadow);
-              padding: 40px;
-              backdrop-filter: blur(12px);
-            }
-            .display {
-              font-family: "Noto Sans KR";
-              font-weight: 700;
-              font-size: clamp(30px, 4.2vw, 64px);
-              line-height: 1.06;
-              margin: 0.25rem 0 0.6rem;
-            }
-            .eyebrow {
-              color: var(--muted);
-              font-size: 13px;
-              letter-spacing: 0.12em;
-              text-transform: uppercase;
-            }
-            .sub {
-              color: var(--muted);
-              margin: 8px 0 0;
-            }
-            .time-badge {
-              display: inline-flex;
-              align-items: center;
-              gap: 12px;
-              padding: 12px 16px;
-              border-radius: 999px;
-              background: rgba(255, 255, 255, 0.06);
-              border: 1px solid var(--line);
-              font-weight: 700;
-              letter-spacing: 0.02em;
-              margin-top: 10px;
-            }
-            .dot {
-              width: 10px;
-              height: 10px;
-              border-radius: 50%;
-              background: var(--accent);
-              box-shadow: 0 0 12px var(--accent);
-            }
-            .pill {
-              display: inline-flex;
-              align-items: center;
-              gap: 8px;
-              padding: 6px 10px;
-              border-radius: 999px;
-              background: rgba(255, 255, 255, 0.05);
-              border: 1px solid var(--line);
-              color: var(--muted);
-              font-size: 13px;
-            }
-            .cta-row {
-              display: flex;
-              gap: 12px;
-              margin-top: 24px;
-              flex-wrap: wrap;
-            }
-            .btn {
-              position: relative;
-              padding: 12px 16px;
-              border-radius: 14px;
-              color: #111;
-              text-decoration: none;
-              font-weight: 700;
-              letter-spacing: 0.02em;
-              transition: transform 0.25s ease, box-shadow 0.25s ease,
-                background 0.25s ease;
-              background: linear-gradient(135deg, #ffd76a, #ffae00);
-            }
-            .btn:hover {
-              transform: translateY(-2px);
-              box-shadow: 0 10px 24px rgba(255, 174, 0, 0.35);
-            }
+      /* =============================사진 영역============================= */
+      .info-image {
+        width: 100%;
+        margin: auto;
+        max-width: 1300px;
+      }
+      .info-image > img {
+        width: 100%;
+      }
 
-            /* ============================카드 그리드========================== */
-            .grid {
-              display: grid;
-             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-              gap: 18px;
-              margin: 30px auto 0;
-              max-width: 1140px;
-              padding: 0 20px;
-            }
-            .tile {
-              background: linear-gradient(
-                135deg,
-                rgba(24, 24, 30, 0.78),
-                rgba(12, 12, 16, 0.78)
-              );
-              border: 1px solid var(--line);
-              border-radius: var(--radius);
-              box-shadow: var(--shadow);
-              padding: 22px;
-            }
-            .tile h3 {
-              margin: 0 0 8px;
-              font-size: 18px;
-              font-weight: 700;
-            }
-            .muted {
-              color: var(--muted);
-              display: block;
-              padding-left: 16px;
-            }
-            .list {
-              margin: 0;
-              padding-left: 16px;
-            }
-            .list li {
-              margin: 0.4rem 0;
-            }
+      /* ===============================로케이션======================= */
+      .navi-location {
+        width: 100%;
+        max-width: 1300px;
+        margin: auto;
+      }
+      .navi-location > ul {
+        display: flex;
+        gap: 5px;
+      }
 
-            /* =====================섹션 구분선 ========================== */
-            .section {
-              margin-top: 42px;
-            }
-            .section > h2 {
-              margin: 0 0 14px;
-              font-weight: 600;
-              font-size: clamp(22px, 2.2vw, 30px);
-            }
-            .note {
-              border-left: 1.5px solid var(--accent);
-              background: linear-gradient(
-                90deg,
-                rgba(255, 174, 0, 0.1),
-                rgba(255, 174, 0, 0.03) 35%,
-                transparent
-              );
-              padding: 10px 12px;
-              color: var(--muted);
-              border-radius: 8px;
-            }
-            .divider {
-              height: 1px;
-              width: 100%;
-              background: linear-gradient(
-                90deg,
-                transparent,
-                rgba(255, 255, 255, 0.28),
-                transparent
-              );
-              margin: 36px 0 12px;
-            }
-            .footer {
-              max-width: 1140px;
-              margin: 56px auto 28px;
-              padding: 16px 20px;
-              border-top: 1px solid var(--line);
-              color: var(--muted);
-              font-size: 14px;
-              display: flex;
-              justify-content: space-between;
-              gap: 16px;
-              flex-wrap: wrap;
-            }
-            @media (max-width: 550px) {
+      /* ===========================히어로 영역=========================== */
+      .hero {
+        display: grid;
+        grid-template-columns: 1.4fr 0.9fr;
+        gap: 24px;
+
+        margin: 0 auto 28px;
+        max-width: 1500px;
+        padding: 0 20px;
+      }
+      .hero-card {
+        border: 2px solid rgba(3, 3, 3, 0.2);
+        border-radius: 20px;
+        box-shadow: var(--shadow);
+        padding: 40px;
+        backdrop-filter: blur(12px);
+      }
+      .display {
+        font-family: "Noto Sans KR";
+        font-weight: 700;
+        font-size: clamp(30px, 4.2vw, 64px);
+        line-height: 1.06;
+        margin: 0.25rem 0 0.6rem;
+      }
+      .eyebrow {
+        color: var(--muted);
+        font-size: 13px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      .sub {
+        color: var(--muted);
+        margin: 8px 0 0;
+      }
+      .time-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 16px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid var(--line);
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        margin-top: 10px;
+      }
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 12px var(--accent);
+      }
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .cta-row {
+        display: flex;
+        gap: 12px;
+        margin-top: 24px;
+        flex-wrap: wrap;
+      }
+      .btn {
+        position: relative;
+        padding: 12px 16px;
+        border-radius: 14px;
+        color: #111;
+        text-decoration: none;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        transition: transform 0.25s ease, box-shadow 0.25s ease,
+          background 0.25s ease;
+        background: linear-gradient(135deg, #ffd76a, #ffae00);
+      }
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 24px rgba(255, 174, 0, 0.35);
+      }
+
+      /* ============================카드 그리드========================== */
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 18px;
+        margin: 30px auto 0;
+        max-width: 1140px;
+        padding: 0 20px;
+      }
+      .card > h3 {
+        color: #fff;
+      }
+      .tile {
+        background: linear-gradient(
+          135deg,
+          rgba(24, 24, 30, 0.78),
+          rgba(12, 12, 16, 0.78)
+        );
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 22px;
+      }
+      .tile h3 {
+        margin: 0 0 8px;
+        font-size: 18px;
+        font-weight: 700;
+      }
+      .muted {
+        color: var(--muted);
+        display: block;
+        padding-left: 16px;
+      }
+      .list {
+        margin: 0;
+        padding-left: 16px;
+      }
+      .list li {
+        margin: 0.4rem 0;
+      }
+
+      /* =====================섹션 구분선 ========================== */
+      .section {
+        margin-top: 42px;
+      }
+      .section > h2 {
+        margin: 0 0 14px;
+        font-weight: 600;
+        font-size: clamp(22px, 2.2vw, 30px);
+      }
+      .note {
+        border-left: 1.5px solid var(--accent);
+        background: linear-gradient(
+          90deg,
+          rgba(255, 174, 0, 0.1),
+          rgba(255, 174, 0, 0.03) 35%,
+          transparent
+        );
+        padding: 10px 12px;
+        color: var(--muted);
+        border-radius: 8px;
+      }
+      .divider {
+        height: 1px;
+        width: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.28),
+          transparent
+        );
+        margin: 36px 0 12px;
+      }
+      .footer {
+        max-width: 1140px;
+        margin: 56px auto 28px;
+        padding: 16px 20px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 14px;
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      @media (max-width: 550px) {
         .hero {
           grid-template-columns: 1fr; /* 한 줄 */
         }
@@ -438,14 +452,14 @@
       .fix-menu-wrap > .fix-menu {
         position: relative;
       }
-      .fix-menu-wrap > .fix-menu:hover span{
+      .fix-menu-wrap > .fix-menu:hover span {
         display: block;
       }
       .fix-menu-wrap > .fix-menu span {
         position: absolute;
         left: -140px;
         top: 15px;
-        background-color: #5646B6;
+        background-color: #5646b6;
         color: #fff;
         font-weight: 800;
         border-radius: 5px;
@@ -465,7 +479,6 @@
       }
       .fix-menu-wrap .top-btn img {
         width: 100%;
-
       }
 
       @media screen and (max-width: 1030px) {
@@ -491,8 +504,8 @@
       }
       @media screen and (max-width: 500px) {
         .footer_wrap .footerIcon {
-        max-width: 50px;
-      }
+          max-width: 50px;
+        }
       }
     </style>
   </head>
@@ -508,7 +521,6 @@
       <div class="sub-title">관람 안내</div>
     </header>
 
-    <!-- 사이드 메뉴 (아코디언 포함) -->
     <nav id="sideMenu" class="side-menu">
       <ul>
         <li class="accordion-item">
@@ -553,14 +565,14 @@
         </li>
       </ul>
     </nav>
-    <!-- ---------------------------------------------------
-  -->
     <!-- ==============네비시작============-->
     <div class="navi-location">
       <ul>
-        <li><a href="index.html">Home</a>></li>
-        <li><a href="index.html">박물관소개</a>></li>
-        <li><a href="index.html">관람정보</a></li>
+        <li>
+          <a href="index.html"><i class="fa-solid fa-house"></i>&nbsp;Home</a>>
+        </li>
+        <li><a href="index.html">&nbsp;관람정보</a>></li>
+        <li><a href="index.html">&nbsp;이용안내</a></li>
       </ul>
     </div>
     <!-- ==============네비끝================== -->

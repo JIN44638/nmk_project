@@ -130,8 +130,8 @@
           <!-- 아이콘 영역 -->
           <div class="header-icon">
             <div class="lang">
-              <button id="lang-en-btn">EN</button>
-              <button id="lang-kr-btn">KR</button>
+              <a href="index.html">KR </a>
+              <a href="index-en.html">EN</a>
             </div>
             <div class="search-icon">
               <button id="search-btn">
@@ -170,17 +170,21 @@
       <!-- 메인 메뉴 -->
       <div class="panel main-panel">
         <ul>
-          <li><a href="#" data-target="sub-design">박물관 소개</a></li>
+          <li><a href="#" data-target="sub-design">관람 정보</a></li>
           <li><a href="#" data-target="sub-furn">전시 안내</a></li>
           <li><a href="#" data-target="sub-fabric">문화 행사</a></li>
-          <!-- 여기서부터 데이타타겟 수정해야함 -->
-          <li><a href="#" data-target="sub-fabric">탐험 헌터</a></li>
+
           <!-- 그냥 링크로 감 -->
           <li><a href="https://www.museumshop.or.kr/kor/main.do">굿즈</a></li>
           <li>
             <a href="https://www.museum.go.kr/MUSEUM/contents/M0801000000.do"
-              >박물관 연혁</a
+              >박물관 소개</a
             >
+          </li>
+          <li>
+            <div class="search-icon">
+              <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+            </div>
           </li>
         </ul>
       </div>
@@ -189,35 +193,26 @@
       <div class="panel sub-panel" id="sub-design">
         <button class="back-btn">뒤로 ➜</button>
         <ul>
-          <li><a href="#">관람 정보</a></li>
-          <li><a href="#">박물관 히스토리</a></li>
-          <li><a href="#">박물관 가이드</a></li>
+          <li><a href="#">이용 안내</a></li>
+          <li><a href="#">예약 안내</a></li>
+          <li><a href="#">자주 묻는 질문</a></li>
         </ul>
       </div>
 
       <div class="panel sub-panel" id="sub-furn">
         <button class="back-btn">뒤로 ➜</button>
         <ul>
-          <li><a href="#">작품들</a></li>
-          <li><a href="#">그림들</a></li>
-          <li><a href="#">특별전시</a></li>
+          <li><a href="#">상설 전시</a></li>
+          <li><a href="#">특별 전시</a></li>
+          <li><a href="#">E-박물관</a></li>
         </ul>
       </div>
       <div class="panel sub-panel" id="sub-fabric">
         <button class="back-btn">뒤로 ➜</button>
         <ul>
-          <li><a href="#">이벤트 소개</a></li>
-          <li><a href="#">스템프 이벤트</a></li>
-          <li><a href="#">문화체험 이벤트</a></li>
-        </ul>
-      </div>
-      <!-- 수정예정1 -->
-      <div class="panel sub-panel" id="sub-fabric">
-        <button class="back-btn">뒤로 ➜</button>
-        <ul>
-          <li><a href="#">비 언 헌터</a></li>
-          <li><a href="#">전용컨텐츠1</a></li>
-          <li><a href="#">전용컨텐츠2</a></li>
+          <li><a href="#">케데헌 행사</a></li>
+          <li><a href="#">스템프 행사</a></li>
+          <li><a href="#">문화체험 행사</a></li>
         </ul>
       </div>
     </nav>
@@ -303,7 +298,7 @@
     <!-- 전시-1 -->
     <div class="display1_wrap">
       <div class="inner-display1">
-        <h1>Sculpture and Crafts</h1>
+        <h1>조각공예관</h1>
         <!-- Swiper -->
         <div class="swiper display1Swiper">
           <div class="swiper-wrapper">
@@ -353,7 +348,7 @@
       <!-- 배경 -->
       <div class="display2_wrap-bg"></div>
       <div class="inner-display2">
-        <h1>Paintings</h1>
+        <h1>서화관</h1>
         <!-- Swiper -->
         <div class="swiper display2Swiper">
           <div class="swiper-wrapper">
@@ -429,7 +424,7 @@
 
       <!-- 내부 컨테이너 -->
       <div class="info-inner">
-        <h3>Info</h3>
+        <h3>관람 정보</h3>
 
         <!-- 탭 영역 -->
         <div class="tabs">
@@ -539,11 +534,13 @@
             </label>
             <div class="tab-content" id="tab-03">
               <div class="info-diracr-item">
-                <img
-                  class="info-diract"
-                  src="images/info/direction.png"
-                  alt="오시는길"
-                />
+                <div class="info-dir-img-box">
+                  <img
+                    src="/images/info/direction.png"
+                    alt="오시는 길"
+                    class="info-direct"
+                  />
+                </div>
                 <div class="diract-scr">
                   <p>
                     국립중앙박물관<br />
@@ -570,11 +567,11 @@
           <div class="footer-right">
             <!-- 하단 메뉴 -->
             <ul class="footerMenu">
-              <li>Our Stories</li>
-              <li>Be A Hunter</li>
-              <li>For:eigner</li>
-              <li>e-Museum</li>
-              <li>MU:DS</li>
+              <li>전시 안내</li>
+              <li>케데헌 이벤트</li>
+              <li>문화 행사</li>
+              <li>관람 정보</li>
+              <li>굿즈</li>
             </ul>
             <!-- 하단아이콘 -->
             <div class="footerIcon">
@@ -593,7 +590,7 @@
     <!-- 퀵 메뉴 /gotop-->
     <div class="fix-menu-wrap">
       <a href="#" class="fix-menu">
-        <img src="images/footer/Group 209.png" alt="ticket" />
+        <img src="images/footer/Group 218.png" alt="ticket" />
         <span>Buy The Ticket!</span>
       </a>
       <div class="top-btn">
@@ -601,13 +598,5 @@
         <!-- <img src="images/footer/Group 217.png" alt=""> -->
       </div>
     </div>
-    <!-- 퀵 메뉴 /gotop
-    <div class="fix-menu-wrap">
-      <a href="#" class="fix-menu">
-        <img src="images/footer/ticket.png" alt="ticket" />
-        <span>Buy The Ticket!</span>
-      </a>
-      <div class="top-btn"></div>
-    </div> -->
   </body>
 </html>

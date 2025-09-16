@@ -5,7 +5,7 @@ window.addEventListener("load", function () {
     effect: "coverflow",
     grabCursor: true,
     centeredSlides: true,
-    slidesPerView: "auto",
+    // slidesPerView: "auto",
     slidesPerView: 2, // ✅ 3장만 보이게
 
     coverflowEffect: {

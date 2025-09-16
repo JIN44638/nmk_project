@@ -62,17 +62,24 @@ document.addEventListener('DOMContentLoaded', () => {
       modal.style.display = "none";
     }
   });
-
-const engBtn = document.querySelector("#lang-en-btn");
-const korBtn = document.querySelector("#lang-kr-btn");
-
-engBtn.addEventListener("click", function () {
-  window.location.href = "eng.html";
 });
+// ----------------------------------
+// li안의 서치바 모달
+document.addEventListener("DOMContentLoaded", () => {
+  const navSearchBtn = document.querySelector("#ham-nav .search-icon a");
+  const modal = document.getElementById("search-modal");
+  const content = modal.querySelector(".search-modal_content");
 
-korBtn.addEventListener("click", function () {
-  window.location.href = "index.html";
+  // 네비 안의 서치 아이콘 클릭 시 모달 열기
+  navSearchBtn.addEventListener("click", (e) => {
+    e.preventDefault(); // a 링크 기본동작 막기
+    modal.style.display = "flex";
+  });
+
+  // 모달 바깥 클릭 시 닫기
+  modal.addEventListener("click", (e) => {
+    if (!content.contains(e.target)) {
+      modal.style.display = "none";
+    }
+  });
 });
-});
-
-

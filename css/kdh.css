@@ -106,6 +106,7 @@
 
   border-radius: 50px;
   border: transparent;
+  max-width: 450px;
   background: linear-gradient(
     90deg,
     #359be3 0%,
@@ -118,6 +119,7 @@
 }
 
 .kdh-game-start {
+  max-width: 450px;
   position: relative;
   z-index: 9999;
   border-radius: 50px;

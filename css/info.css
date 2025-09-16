@@ -32,7 +32,7 @@
 /* 제목 */
 .info-inner > h3 {
   font-family: "Playfair Display", serif;
-  font-size: clamp(24px, 3vw, 70px);
+  font-size: clamp(32px, 3vw, 70px);
   margin-bottom: 2rem;
 }
 
@@ -67,7 +67,7 @@
 
 .tab-label .infoLogo {
   opacity: 0;
-  width: 30px;
+  width: clamp(15px , 5vw , 25px);
   transition: opacity 0.3s ease;
 }
 
@@ -108,7 +108,7 @@
   justify-content: center;
   align-items: flex-start;
   gap: 5%;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
 }
 .info-map {
   flex: 0 1 auto;
@@ -165,15 +165,22 @@
   display: flex;
   justify-content: center;
   gap: 5%;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   align-items: flex-start;
 }
-.info-diract {
-  flex: 1 1 300px;
-  max-width: 500px;
+
+.info-dir-img-box {
   width: 100%;
-  height: auto;
+  max-width: 1200px; 
 }
+
+.info-dir-img-box img {
+  width: 100%;
+  height: auto;       
+  object-fit: contain;
+  display: block;
+}
+
 .diract-scr {
   padding-top: 3%;
   line-height: 2;
@@ -241,6 +248,20 @@
     padding: 0;
     padding-bottom: 1rem;
   }
+  .info-diract {
+    height: 250px;
+    margin: 0;
+  }
+  .diract-scr{
+    padding: 0;
+  }
+  #tab-03{
+    padding-top: 0;
+    margin-top: 0;
+  }
+.info-wrap{
+  min-height: 500px;
+}
 }
 @media (max-width: 450px) {
   .open_time {

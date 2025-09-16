@@ -25,8 +25,11 @@
   z-index: 9999;
 }
 .display2_wrap .inner-display2 > h1 {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(32px, 3vw, 70px);
+   font-family:"Black Han Sans", sans-serif;
+  /* font-family: "Playfair Display", serif; */
+  font-size: clamp(32px, 5vw, 70px);
+  /* font-size: clamp(32px, 3vw, 70px); */
+
   color: #fff;
   text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   padding-top: 2%;
@@ -34,7 +37,9 @@
 .display2_wrap .swiper {
   width: 80%;
   aspect-ratio: 1.6/1;
+ 
   padding-top: 5%;
+
   /* padding-bottom: 2%; */
   /* 초기 FOUC 방지: 스와이퍼 초기화 전 숨김 */
   opacity: 0;
@@ -81,7 +86,7 @@
 }
 @media screen and (max-width: 1580px) {
   .display2_wrap {
-    height: 55vw;
+    height: 65vw;
   }
   .display2_wrap .swiper {
     /* width: 70%; */

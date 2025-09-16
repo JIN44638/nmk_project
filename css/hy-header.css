@@ -1,5 +1,5 @@
 :root {
-  --col-w: 30%;
+  --col-w:20VW;
 }
 
 /* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -89,7 +89,7 @@
   display: block;
 }
 
-/* 일단추가 */
+/* ++ */
 .menu-icon button {
  
   background: none;
@@ -115,7 +115,7 @@
   display: flex;
   gap: 5px;
 }
-.lang > button {
+.lang > a {
   background-color: transparent;
   cursor: pointer;
   border: none;
@@ -230,4 +230,19 @@
   font-size: 20px;
 }
 
+@media (max-width: 950px) {
 
+
+  :root {
+    --col-w:25VW;
+  }
+  
+}
+@media (max-width: 600px) {
+
+
+  :root {
+    --col-w:35VW;
+  }
+  
+}

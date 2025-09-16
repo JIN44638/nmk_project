@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>케이팝 데몬 헌터스 – 나에게 맞는 캐릭터 & 무기 찾기</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0a10; --bg2:#141226;
+  --ink:#ece9ff; --muted:#b7b3d9;
+  --brand:#a876ff; --accent:#ff3d7f;
+  --line:rgba(255,255,255,.12); --blur:blur(10px);
+  --card:linear-gradient(180deg, rgba(42,34,76,.6), rgba(18,16,34,.7));
+  --radius:16px; --shadow:0 10px 40px rgba(168,118,255,.28);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; color:var(--ink); font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+  background:
+    radial-gradient(90vw 60vh at 120% 0%, rgba(255,61,127,.14), transparent 60%),
+    radial-gradient(80vw 60vh at -20% 20%, rgba(168,118,255,.16), transparent 60%),
+    linear-gradient(180deg,var(--bg),var(--bg2));
+  line-height:1.65;
+}
+.wrap{max-width:1120px; margin:0 auto; padding:0 20px}
+a{text-decoration:none; color:inherit}
+
+/* header */
+.header{position:sticky; top:0; z-index:50; backdrop-filter:var(--blur); background:rgba(10,9,18,.55); border-bottom:1px solid var(--line)}
+.header .row{display:flex; align-items:center; justify-content:space-between; padding:14px 18px}
+.brand{display:flex; gap:10px; align-items:center; font-family:Orbitron; letter-spacing:.02em}
+.brand svg{width:28px;height:28px}
+.nav{display:flex; gap:12px; flex-wrap:wrap}
+.nav a{padding:8px 12px; border:1px solid var(--line); border-radius:999px; color:var(--muted)}
+.nav a:hover,.nav a:focus-visible{outline:none; border-color:#fff; color:#fff}
+
+/* hero */
+.hero{padding:84px 0 56px; text-align:center}
+.hero h1{margin:0 0 10px; font-family:Orbitron; font-size:clamp(30px,6vw,60px); text-shadow:0 0 18px rgba(168,118,255,.45)}
+.hero p{margin:0 0 18px; color:var(--muted)}
+.cta{display:inline-flex; gap:10px; align-items:center; padding:12px 18px; border-radius:999px; background:linear-gradient(90deg,var(--brand),var(--accent)); color:#fff; box-shadow:var(--shadow)}
+.cta:hover{filter:brightness(1.05)}
+
+/* steps */
+.steps{display:flex; gap:10px; justify-content:center; margin:10px 0 0}
+.steps span{padding:6px 12px; border-radius:999px; border:1px solid var(--line); color:var(--muted); font-weight:700; font-size:13px}
+.steps .on{background:rgba(255,255,255,.08); color:#fff; border-color:rgba(255,255,255,.3)}
+
+/* card & grids */
+.block{margin:46px 0}
+.card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:20px}
+.h2{margin:0 0 10px; font-family:Orbitron; font-size:clamp(20px,3vw,28px)}
+.sub{margin:-6px 0 18px; color:var(--muted)}
+.grid{display:grid; gap:14px; grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.opt{
+  position:relative; overflow:hidden; border-radius:14px; border:1px solid var(--line); background:rgba(255,255,255,.06);
+  cursor:pointer; display:flex; flex-direction:column; min-height:142px
+}
+.opt:hover{transform:translateY(-2px)}
+.opt .cap{padding:14px 14px 12px; font-weight:700}
+.opt .desc{padding:0 14px 14px; color:var(--muted); font-size:14px}
+.opt .img{flex:1; background-size:cover; background-position:center; filter:saturate(1.05)}
+
+/* two columns for quiz/result */
+.qwrap{display:grid; grid-template-columns:1.15fr .85fr; gap:18px}
+@media (max-width:880px){ .qwrap{grid-template-columns:1fr} }
+
+/* result panel */
+.result{background:rgba(255,255,255,.05); border:1px dashed rgba(255,255,255,.18); border-radius:14px; padding:16px}
+.tag{display:inline-flex; gap:8px; align-items:center; border:1px solid rgba(255,255,255,.2); padding:6px 10px; border-radius:999px; margin:6px 6px 0 0; font-size:13px}
+.summary{display:grid; gap:14px; grid-template-columns:120px 1fr; align-items:center; margin-top:10px}
+.thumb{width:120px;height:120px; border-radius:12px; background-size:cover; background-position:center; border:1px solid var(--line)}
+.go{margin-top:12px; display:inline-flex}
+
+/* footer */
+.footer{margin:56px 0 28px; text-align:center; color:var(--muted); font-size:14px}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="wrap row">
+    <div class="brand">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M12 2l2.3 4.7L20 7l-4 3.9L17 18l-5-2.6L7 18l1-7.1-4-3.9 5.7-.3L12 2z" fill="url(#g)"/>
+        <defs><linearGradient id="g" x1="0" y1="0" x2="24" y2="24"><stop stop-color="#a876ff"/><stop offset="1" stop-color="#ff3d7f"/></linearGradient></defs>
+      </svg>
+      <b>K-POP Demon Hunters</b>
+    </div>
+    <nav class="nav" aria-label="Sections">
+      <a href="#step1">STEP 1</a>
+      <a href="#step2">STEP 2</a>
+      <a href="#result">RESULT</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>나에게 맞는 캐릭터 & 무기 찾기</h1>
+    <p>두 단계로 끝! 취향 기반 매칭으로 당신의 ‘메인 빌드’를 추천해 드려요.</p>
+    <div class="steps"><span class="on">STEP 1 캐릭터</span><span>STEP 2 무기</span><span>RESULT</span></div>
+    <a class="cta" href="#step1">시작하기 →</a>
+  </div>
+</section>
+
+<main class="wrap">
+
+  <!-- STEP 1: 캐릭터 -->
+  <section id="step1" class="block">
+    <div class="card qwrap">
+      <div>
+        <h2 class="h2">STEP 1 · 캐릭터 성향 선택</h2>
+        <p class="sub">아래 옵션 중 <b>3개</b>를 골라 주세요.</p>
+        <div class="grid" id="char-grid" role="group" aria-label="캐릭터 성향">
+          <!-- 아이돌 -->
+          <button class="opt" data-char="idol" data-weight="2" type="button">
+            <div class="img" style="background-image:url('images/kdh/character-idol.jpg')"></div>
+            <div class="cap">아이돌 듀얼리스트</div>
+            <div class="desc">무대 위에서 선봉. 화려한 연계 & 광역 응원.</div>
+          </button>
+          <!-- 래퍼 -->
+          <button class="opt" data-char="rapper" data-weight="2" type="button">
+            <div class="img" style="background-image:url('images/kdh/character-rapper.jpg')"></div>
+            <div class="cap">래퍼 스트라이커</div>
+            <div class="desc">박자 폭발, 돌진/콤보로 압도하는 근접.</div>
+          </button>
+          <!-- 프로듀서 -->
+          <button class="opt" data-char="producer" data-weight="2" type="button">
+            <div class="img" style="background-image:url('images/kdh/character-producer.jpg')"></div>
+            <div class="cap">프로듀서 서포터</div>
+            <div class="desc">쿨감·버프/디버프로 전장을 설계.</div>
+          </button>
+          <!-- 보조 성향 (가중치 1) -->
+          <button class="opt" data-char="idol" data-weight="1" type="button">
+            <div class="img" style="background-image:url('images/kdh/character-idol.jpg')"></div>
+            <div class="cap">관객몰이 리더십</div>
+            <div class="desc">앞에서 끌고 가는 장점 보유.</div>
+          </button>
+          <button class="opt" data-char="rapper" data-weight="1" type="button">
+            <div class="img" style="background-image:url('images/kdh/character-rapper.jpg')"></div>
+            <div class="cap">공격적 템포</div>
+            <div class="desc">빠른 템포·연계 선호.</div>
+          </button>
+          <button class="opt" data-char="producer" data-weight="1" type="button">
+            <div class="img" style="background-image:url('images/kdh/character-producer.jpg')"></div>
+            <div class="cap">정확·간결 컨트롤</div>
+            <div class="desc">위기관리/자원관리 강점.</div>
+          </button>
+        </div>
+      </div>
+
+      <aside class="result" id="char-out" aria-live="polite">
+        <strong>선택을 3개 이상 하면 캐릭터가 추천됩니다.</strong>
+        <div style="margin-top:8px;color:var(--muted)">현재 선택: <span id="char-count">0</span>/3</div>
+        <div id="char-summary" class="summary" style="display:none">
+          <div class="thumb" id="char-thumb"></div>
+          <div>
+            <div id="char-name" style="font-weight:800"></div>
+            <div id="char-desc" style="color:var(--muted)"></div>
+            <div style="margin-top:8px">
+              <span class="tag">추천코드 · <span id="char-code"></span></span>
+            </div>
+            <a class="cta go" href="#step2" id="to-step2">STEP 2로 이동</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- STEP 2: 무기 -->
+  <section id="step2" class="block">
+    <div class="card qwrap">
+      <div>
+        <h2 class="h2">STEP 2 · 무기 취향 선택</h2>
+        <p class="sub">아래 옵션 중 <b>2개</b>를 골라 주세요.</p>
+        <div class="grid" id="weap-grid" role="group" aria-label="무기 성향">
+          <button class="opt" data-weap="mic-scythe" data-weight="2" type="button">
+            <div class="img" style="background-image:url('images/kdh/weapon-mic-scythe.jpg')"></div>
+            <div class="cap">마이크 사이스</div>
+            <div class="desc">근접 광역 + 돌진기 하이브리드.</div>
+          </button>
+          <button class="opt" data-weap="bass-cannon" data-weight="2" type="button">
+            <div class="img" style="background-image:url('images/kdh/weapon-bass-cannon.jpg')"></div>
+            <div class="cap">베이스 캐논</div>
+            <div class="desc">장거리 차징·폭발 화력.</div>
+          </button>
+          <button class="opt" data-weap="lightstick-blade" data-weight="2" type="button">
+            <div class="img" style="background-image:url('images/kdh/weapon-lightstick-blade.jpg')"></div>
+            <div class="cap">라이트스틱 블레이드</div>
+            <div class="desc">버프/디버프로 흐름 제어.</div>
+          </button>
+          <!-- 보조 -->
+          <button class="opt" data-weap="mic-scythe" data-weight="1" type="button">
+            <div class="img" style="background-image:url('images/kdh/weapon-mic-scythe.jpg')"></div>
+            <div class="cap">순간이동·파고들기</div>
+            <div class="desc">기습·근접 운영 선호.</div>
+          </button>
+          <button class="opt" data-weap="bass-cannon" data-weight="1" type="button">
+            <div class="img" style="background-image:url('images/kdh/weapon-bass-cannon.jpg')"></div>
+            <div class="cap">안정적 원거리</div>
+            <div class="desc">거리 유지, 폭딜 타이밍.</div>
+          </button>
+          <button class="opt" data-weap="lightstick-blade" data-weight="1" type="button">
+            <div class="img" style="background-image:url('images/kdh/weapon-lightstick-blade.jpg')"></div>
+            <div class="cap">팀 시너지</div>
+            <div class="desc">보조·컨트롤 중심.</div>
+          </button>
+        </div>
+      </div>
+
+      <aside class="result" id="weap-out" aria-live="polite">
+        <strong>선택을 2개 이상 하면 무기가 추천됩니다.</strong>
+        <div style="margin-top:8px;color:var(--muted)">현재 선택: <span id="weap-count">0</span>/2</div>
+        <div id="weap-summary" class="summary" style="display:none">
+          <div class="thumb" id="weap-thumb"></div>
+          <div>
+            <div id="weap-name" style="font-weight:800"></div>
+            <div id="weap-desc" style="color:var(--muted)"></div>
+            <div style="margin-top:8px">
+              <span class="tag">코드 · <span id="weap-code"></span></span>
+            </div>
+            <a class="cta go" href="#result">결과 보기</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- RESULT -->
+  <section id="result" class="block">
+    <div class="card">
+      <h2 class="h2">RESULT · 당신의 메인 빌드</h2>
+      <p class="sub">선택을 바꾸면 결과도 즉시 갱신됩니다.</p>
+
+      <div class="grid">
+        <div class="result">
+          <strong>추천 캐릭터</strong>
+          <div class="summary">
+            <div class="thumb" id="final-char-thumb"></div>
+            <div>
+              <div id="final-char-name" style="font-weight:800">—</div>
+              <div id="final-char-desc" style="color:var(--muted)">—</div>
+              <div class="tag">코드 · <span id="final-char-code">—</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="result">
+          <strong>추천 무기</strong>
+          <div class="summary">
+            <div class="thumb" id="final-weap-thumb"></div>
+            <div>
+              <div id="final-weap-name" style="font-weight:800">—</div>
+              <div id="final-weap-desc" style="color:var(--muted)">—</div>
+              <div class="tag">코드 · <span id="final-weap-code">—</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a class="cta" style="margin-top:14px; display:inline-flex" href="#step1">다시 선택하기</a>
+    </div>
+  </section>
+
+</main>
+
+<p class="footer">© K-POP Demon Hunters — Event Demo</p>
+
+<script>
+/* ==========================
+   작은 헬퍼들
+========================== */
+function topKey(map){ let k=null, m=-1; for(const [kk,v] of map){ if(v>m){m=v; k=kk} } return k }
+function sum(map){ let s=0; for(const v of map.values()) s+=v; return s }
+
+/* 데이터 사전 */
+const CHAR_INFO={
+  idol:{ name:'아이돌 듀얼리스트',  desc:'고속 연계 + 광역 응원으로 선봉에서 전장을 주도.',
+         img:'images/kdh/character-idol.jpg', code:'idol' },
+  rapper:{ name:'래퍼 스트라이커',  desc:'박자 폭발 돌진·콤보로 근접 제압.',
+           img:'images/kdh/character-rapper.jpg', code:'rapper' },
+  producer:{ name:'프로듀서 서포터', desc:'쿨감·버프/디버프로 팀 시너지를 극대화.',
+             img:'images/kdh/character-producer.jpg', code:'producer' }
+};
+const WEAP_INFO={
+  'mic-scythe':{ name:'마이크 사이스', desc:'근접 광역 + 돌진 하이브리드.', img:'images/kdh/weapon-mic-scythe.jpg', code:'mic-scythe' },
+  'bass-cannon':{ name:'베이스 캐논', desc:'장거리 차징·폭발 화력.', img:'images/kdh/weapon-bass-cannon.jpg', code:'bass-cannon' },
+  'lightstick-blade':{ name:'라이트스틱 블레이드', desc:'버프/디버프 중심의 컨트롤러.', img:'images/kdh/weapon-lightstick-blade.jpg', code:'lightstick-blade' }
+};
+
+/* 상태 */
+const charCount=new Map(), weapCount=new Map();
+const els={
+  charCount:document.getElementById('char-count'),
+  charOut:document.getElementById('char-out'),
+  charSummary:document.getElementById('char-summary'),
+  charThumb:document.getElementById('char-thumb'),
+  charName:document.getElementById('char-name'),
+  charDesc:document.getElementById('char-desc'),
+  charCode:document.getElementById('char-code'),
+
+  weapCount:document.getElementById('weap-count'),
+  weapSummary:document.getElementById('weap-summary'),
+  weapThumb:document.getElementById('weap-thumb'),
+  weapName:document.getElementById('weap-name'),
+  weapDesc:document.getElementById('weap-desc'),
+  weapCode:document.getElementById('weap-code'),
+
+  fCharThumb:document.getElementById('final-char-thumb'),
+  fCharName:document.getElementById('final-char-name'),
+  fCharDesc:document.getElementById('final-char-desc'),
+  fCharCode:document.getElementById('final-char-code'),
+  fWeapThumb:document.getElementById('final-weap-thumb'),
+  fWeapName:document.getElementById('final-weap-name'),
+  fWeapDesc:document.getElementById('final-weap-desc'),
+  fWeapCode:document.getElementById('final-weap-code'),
+};
+
+/* 공통 핸들러: 옵션 클릭 → 가중치 누적 */
+function attachGrid(gridId, map, minPick, infoDict, onDone){
+  const grid=document.getElementById(gridId);
+  grid.addEventListener('click', e=>{
+    const opt=e.target.closest('.opt'); if(!opt) return;
+    const key=opt.dataset.char || opt.dataset.weap;
+    const w=+(opt.dataset.weight||1);
+    map.set(key,(map.get(key)||0)+w);
+    opt.style.opacity=.72; opt.style.pointerEvents='none';
+    const picked=[...map.values()].reduce((a,b)=>a+b,0); // 가중치 합
+    if(picked>=minPick) onDone(topKey(map));
+    // 카운트(선택 개수) 표시
+    if(gridId==='char-grid') els.charCount.textContent = Math.min(3, picked);
+    if(gridId==='weap-grid') els.weapCount.textContent = Math.min(2, picked);
+  });
+}
+
+/* STEP1 완료시 표시 */
+attachGrid('char-grid', charCount, 3, CHAR_INFO, (key)=>{
+  const it=CHAR_INFO[key];
+  els.charSummary.style.display='grid';
+  els.charThumb.style.backgroundImage=`url('${it.img}')`;
+  els.charName.textContent = it.name;
+  els.charDesc.textContent = it.desc;
+  els.charCode.textContent = it.code;
+
+  // 결과에도 반영
+  els.fCharThumb.style.backgroundImage=`url('${it.img}')`;
+  els.fCharName.textContent=it.name;
+  els.fCharDesc.textContent=it.desc;
+  els.fCharCode.textContent=it.code;
+});
+
+/* STEP2 완료시 표시 */
+attachGrid('weap-grid', weapCount, 2, WEAP_INFO, (key)=>{
+  const it=WEAP_INFO[key];
+  els.weapSummary.style.display='grid';
+  els.weapThumb.style.backgroundImage=`url('${it.img}')`;
+  els.weapName.textContent = it.name;
+  els.weapDesc.textContent = it.desc;
+  els.weapCode.textContent = it.code;
+
+  // 결과에도 반영
+  els.fWeapThumb.style.backgroundImage=`url('${it.img}')`;
+  els.fWeapName.textContent=it.name;
+  els.fWeapDesc.textContent=it.desc;
+  els.fWeapCode.textContent=it.code;
+});
+</script>
+</body>
+</html>

@@ -62,4 +62,17 @@ document.addEventListener('DOMContentLoaded', () => {
       modal.style.display = "none";
     }
   });
+
+const engBtn = document.querySelector("#lang-en-btn");
+const korBtn = document.querySelector("#lang-kr-btn");
+
+engBtn.addEventListener("click", function () {
+  window.location.href = "eng.html";
 });
+
+korBtn.addEventListener("click", function () {
+  window.location.href = "index.html";
+});
+});
+
+

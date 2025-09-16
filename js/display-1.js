@@ -1,7 +1,7 @@
 window.addEventListener("load", function () {
   // ✅ 이미지 다 로드된 뒤 강제로 업데이트
 
-  const display1_wrap = new Swiper(".display1_wrap .swiper", {
+  const display2_wrap = new Swiper(".display2_wrap .swiper", {
     effect: "coverflow",
     grabCursor: true,
     centeredSlides: true,

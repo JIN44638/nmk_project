@@ -83,3 +83,9 @@
     display: block;
   }
 }
+@media (max-width: 1800px) {
+.header {
+  margin: 0 3vw !important;}
+
+}
+

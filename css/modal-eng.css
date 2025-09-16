@@ -31,10 +31,10 @@
 .modalTitle {
   color: #ffae00;
   z-index: 99;
-  font-size: clamp(30px, 4vw, 80px);
+  font-size: clamp(30px, 5vw, 80px);
   font-family: "Cafe24Dangdanghae";
   -webkit-text-stroke: 0.2px black;
-  text-shadow: 0 0 150px #fff, 0 0 3px #fff;
+  /* text-shadow: 0 0 150px #fff, 0 0 3px #fff; */
 }
 
 .modalTitle {

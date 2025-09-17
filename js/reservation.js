@@ -163,7 +163,7 @@ class Calendar {
     startDate.setDate(startDate.getDate() - firstDay.getDay());
 
     // 6주 * 7일 = 42일 렌더링
-    for (let i = 0; i < 42; i++) {
+    for (let i = 0; i < 35; i++) {
       const date = new Date(startDate);
       date.setDate(startDate.getDate() + i);
 
@@ -190,135 +190,20 @@ class Calendar {
         dayElement.classList.add("has-event");
       }
 
-      // 클릭 이벤트
       dayElement.addEventListener("click", () => this.selectDate(date));
-
+      // dayElement.addEventListener("click", function () {
+      //   this.selectDate(date);
+      // });
       calendar.appendChild(dayElement);
     }
   }
-  // renderCalendar() {
-  //   const monthYear = document.getElementById("monthYear");
-  //   const calendar = document.getElementById("calendar");
-
-  //   const month = this.monthNames[this.currentDate.getMonth()];
-  //   const year = this.currentDate.getFullYear();
-
-  //   // 일수 초기화
-  //   calendar.innerHTML = "";
-
-  //   // 월/년 표시
-  //   monthYear.textContent = `${month} ${year}`;
-
-  //   // 요일 헤더
-  //   this.dayNames.forEach((day) => {
-  //     const dayHeader = document.createElement("div");
-  //     dayHeader.className = "day-header";
-  //     dayHeader.textContent = day;
-  //     calendar.appendChild(dayHeader);
-  //   });
-
-  //   // 첫 번째 날과 마지막 날
-  //   const firstDay = new Date(year, month, 1);
-  //   const lastDay = new Date(year, month + 1, 0);
-  //   const startDate = new Date(firstDay);
-  //   startDate.setDate(startDate.getDate() - firstDay.getDay());
-
-  //   // 주별로 처리 (다음달만 있는 주는 숨기기)
-  //   const weeks = [];
-  //   for (let week = 0; week < 6; week++) {
-  //     const weekDays = [];
-  //     let hasCurrentMonth = false;
-
-  //     for (let day = 0; day < 7; day++) {
-  //       const date = new Date(startDate);
-  //       date.setDate(startDate.getDate() + week * 7 + day);
-
-  //       weekDays.push(date);
-
-  //       if (date.getMonth() === month) {
-  //         hasCurrentMonth = true;
-  //       }
-  //     }
-
-  //     if (hasCurrentMonth) {
-  //       weeks.push(weekDays);
-  //     }
-  //   }
-
-  //   // 날짜 렌더링
-  //   weeks.forEach((week) => {
-  //     week.forEach((date) => {
-  //       debugger;
-  //       const dayDiv = document.createElement("div");
-  //       dayDiv.className = "day";
-  //       dayDiv.textContent = date.getDate();
-
-  //       // 다른 달 날짜
-  //       if (date.getMonth() !== month) {
-  //         dayDiv.classList.add("other-month");
-  //       }
-
-  //       // 오늘 날짜
-  //       if (this.isSameDate(date, this.today)) {
-  //         dayDiv.classList.add("today");
-  //       }
-
-  //       // 선택된 날짜
-  //       if (this.selectedDate && this.isSameDate(date, this.selectedDate)) {
-  //         dayDiv.classList.add("selected");
-  //       }
-
-  //       // 이벤트가 있는 날짜
-  //       const dateKey = this.getDateKey(date);
-  //       if (this.events[dateKey]) {
-  //         dayDiv.classList.add("has-event");
-  //       }
-
-  //       // 클릭 이벤트
-  //       dayDiv.addEventListener("click", () => this.selectDate(date));
-  //       calendar.appendChild(dayDiv);
-  //     });
-  //   });
-
-  //   // for (let i = 0; i < 42; i++) {
-  //   //   const date = new Date(startDate);
-  //   //   date.setDate(startDate.getDate() + i);
-
-  //   //   const dayElement = document.createElement("div");
-  //   //   dayElement.className = "day";
-  //   //   dayElement.textContent = date.getDate();
-
-  //   //   // 클래스 추가
-  //   //   if (date.getMonth() !== this.currentDate.getMonth()) {
-  //   //     dayElement.classList.add("other-month");
-  //   //   }
-
-  //   //   if (this.isToday(date)) {
-  //   //     dayElement.classList.add("today");
-  //   //   }
-
-  //   //   if (this.selectedDate && this.isSameDate(date, this.selectedDate)) {
-  //   //     dayElement.classList.add("selected");
-  //   //   }
-
-  //   //   // 이벤트가 있는 날짜 표시
-  //   //   const dateKey = this.getDateKey(date);
-  //   //   if (this.events[dateKey]) {
-  //   //     dayElement.classList.add("has-event");
-  //   //   }
-
-  //   //   // 클릭 이벤트
-  //   //   dayElement.addEventListener("click", () => this.selectDate(date));
-
-  //   //   calendar.appendChild(dayElement);
-  //   // }
-  // }
 
   selectDate(date) {
     this.selectedDate = new Date(date);
-    // this.renderHeader();
-    this.renderCalendar();
     this.showDetailPanel(date);
+    const chgCal = document.querySelector(".calendar-container");
+    chgCal.classList.add("show");
+    this.renderCalendar();
   }
 
   showDetailPanel(date) {
@@ -387,60 +272,26 @@ class Calendar {
     `;
 
     panel.classList.add("show");
-
-    console.log(panel);
-    const con = document.querySelectorAll(".event-container");
-    con.forEach((selCon, index) => {
-      selCon.addEventListener("click", function (e) {
-        con.innerHTML = ``;
-
-        // console.log(e);
-
-        // const idx = e.target.dataset.index;
-        // console.log(idx);
-      });
-    });
-
-    // con.forEach((sel, index) => {
-    //   console.log(index);
-    //   sel.addEventListener("click", function (e) {
-    //     con.innerHTML = ``;
-    //   });
-    // });
   }
 
-  // selEvent(event) {
-  //   debugger;
-  //   console.log(event);
+  // animateIn() {
+  //   // GSAP 애니메이션
+  //   gsap.fromto(".calendar-container", {
+  //     y: -200,
+  //     opacity: 1,
+  //     duration: 0.8,
+  //     ease: "power2.out",
+  //   });
 
-  //   // panel.innerHTML = "";
-
-  //   // event.forEach(()=>{
-  //   //   console
-  //   // })
-  //   // const sel = document.getElementById("event-item");
-  //   // sel.addEventListener("click", function () {});
+  //   gsap.to(".detail-panel", {
+  //     x: 0,
+  //     opacity: 1,
+  //     duration: 0.8,
+  //     delay: 0.3,
+  //     ease: "power2.out",
+  //   });
   // }
 
-  animateDetail() {
-    gsap.to(".detail-panel", {
-      x: 0,
-      opacity: 1,
-      duration: 0.8,
-      delay: 0.3,
-      ease: "power2.out",
-    });
-  }
-  animateIn() {
-    // GSAP 애니메이션
-    gsap.fromTo(".calendar-container", {
-      x: 0,
-      opacity: 1,
-      duration: 0.8,
-      delay: 0.3,
-      ease: "power2.out",
-    });
-  }
   attachEvents() {
     document.getElementById("prevBtn").addEventListener("click", () => {
       this.currentDate.setMonth(this.currentDate.getMonth() - 1);

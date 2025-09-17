@@ -3,20 +3,22 @@
   font-weight: 400;
   font-style: normal;
 } */
+
 .reservation-wrap {
   font-family: "Inter", "Poiret One", sans-serif;
   background: url("/images/reservation/calendarBgImg.png");
   min-height: 100vh;
   padding: 20px;
   align-content: center;
-  background-size: cover, 100% 100%;
-  background-position: center, center;
-  background-repeat: no-repeat, no-repeat;
-  background-attachment: fixed, scroll;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
+
 .reservation-title {
-  padding: 40px;
-  align-items: center;
+  padding: 40px 20px;
+  text-align: center;
 }
 
 .reservation-title p {
@@ -25,65 +27,49 @@
   font-size: clamp(2rem, 5vw, 3rem);
   color: #fff;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  margin-bottom: 10px;
+  margin: 0;
 }
 
 .reservation-wrap .container {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 50px 30px;
+  padding: 20px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 30px;
-  /* align-items: flex-start; */
-  align-items: center;
+  align-items: start;
 }
 
 .calendar-container {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 15px;
   padding: 25px;
-  max-width: 500px;
-  backdrop-filter: blur(20px);
-  height: 100%;
-  /* opacity: 1; */
-  transform: translateX(50%);
-  transition: all 0.4s ease;
+  width: 100%;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease;
+  transform: translateX(0);
 }
 
 .calendar-container.show {
-  /* opacity: 1; */
-  border-radius: 15px;
-  padding: 25px;
-  max-width: 500px;
-  backdrop-filter: blur(20px);
-  height: 100%;
-  /* opacity: 1; */
   transform: translateX(0);
-  /* transform: translateX(1%); */
-  transition: all 0.4s ease;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
 }
 
 .detail-panel {
-  height: 100%;
-  max-width: 500px;
+  background: rgb(24, 24, 24);
   border-radius: 15px;
   padding: 25px;
-  background: rgb(24, 24, 24);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  opacity: 0;
+  width: 100%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  opacity: 1;
   transition: all 0.4s ease;
-  /* 
-  transform: translateX(-200px);
-  
-  */
 }
 
 .detail-panel.show {
   opacity: 1;
 }
+
 .calendar-header {
   display: flex;
   justify-content: space-between;
@@ -94,6 +80,7 @@
 .month-year {
   font-size: clamp(1.2rem, 3vw, 1.5rem);
   color: #fff;
+  font-weight: 600;
 }
 
 .nav-btn {
@@ -119,14 +106,14 @@
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 5px;
+  gap: 8px;
 }
 
 .day-header {
   text-align: center;
   font-weight: bold;
   color: #a0a0a0;
-  padding: 10px;
+  padding: 12px 8px;
   font-size: clamp(0.75rem, 2vw, 0.875rem);
 }
 
@@ -141,15 +128,17 @@
   font-weight: 500;
   position: relative;
   font-size: clamp(0.875rem, 2vw, 1rem);
+  color: #fff;
+  min-height: 40px;
 }
 
 .day:hover {
-  background: #f0f4ff;
+  background: rgba(255, 255, 255, 0.1);
   transform: scale(1.05);
 }
 
 .day.other-month {
-  color: #ccc;
+  color: #666;
 }
 
 .day.today {
@@ -159,7 +148,7 @@
 }
 
 .day.selected {
-  background: #181818;
+  background: #764ba2;
   color: white;
   font-weight: bold;
   transform: scale(1.1);
@@ -179,7 +168,7 @@
 }
 
 .detail-header {
-  border-bottom: 2px solid #f0f4ff;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
   padding-bottom: 15px;
   margin-bottom: 20px;
 }
@@ -192,58 +181,50 @@
 }
 
 .date-info {
-  color: #fff;
-  /* color: #666; */
+  color: #ccc;
   font-size: clamp(0.875rem, 2vw, 1rem);
 }
 
 .events-section {
   margin-bottom: 25px;
-  display: flex;
-  flex-direction: column;
 }
 
 .section-title {
   font-size: clamp(1rem, 3vw, 1.125rem);
   font-weight: bold;
   color: #ececec;
-  /* color: #333; */
   margin-bottom: 15px;
-  align-items: center;
-  gap: 5px;
 }
 
 .event-container {
-  padding: 2spx;
-  display: block;
-  flex-direction: row;
-  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .event-item {
-  /* display: flex; */
+  display: flex;
   align-items: center;
-  background: linear-gradient(135deg, #ebf3dd, #4430b1);
-  /* background: linear-gradient(135deg, #667eea, #e268c8); */
-  color: rgb(0, 0, 0);
-  padding: 12px 15px;
-  /* border-radius: 8px; */
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 15px;
+  border-radius: 12px;
   cursor: pointer;
   transition: transform 0.2s ease;
   gap: 15px;
 }
 
 .event-item:hover {
-  transform: translateX(5px);
+  transform: translateY(-2px);
 }
 
-/* 이미지 컨테이너 */
 .event-img {
   flex-shrink: 0;
-  height: 300px;
-  border-radius: 5px;
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
   overflow: hidden;
-  /* background: rgba(255, 255, 255, 0.1); */
+  background: rgba(255, 255, 255, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -253,38 +234,38 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* border-radius: 6px; */
 }
 
-/* 이벤트 정보 */
 .event-info {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 4px;
+  min-width: 0;
 }
 
 .event-time {
   font-size: clamp(0.75rem, 2vw, 0.875rem);
-  opacity: 0.9;
+  opacity: 0.8;
 }
 
 .event-title {
   font-weight: bold;
   font-size: clamp(0.875rem, 2vw, 1rem);
+  word-break: break-word;
 }
 
 .no-events {
   color: #999;
   font-style: italic;
   text-align: center;
-  padding: 20px;
+  padding: 40px 20px;
   font-size: clamp(0.875rem, 2vw, 1rem);
 }
 
 .quick-actions {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 10px;
 }
 
@@ -292,170 +273,66 @@
   background: #f8f9fa;
   border: 1px solid #9c9c9c;
   color: #9c9c9c;
-  padding: 8px 16px;
+  padding: 10px 16px;
   border-radius: 20px;
   cursor: not-allowed;
-  transition: all 0.3s ease;
   font-size: clamp(0.75rem, 2vw, 0.875rem);
   font-weight: 500;
   text-align: center;
+  flex: 1;
+  min-width: 80px;
 }
 
 .action-btn {
   background: #f8f9fa;
-  border: 1px solid #0c0c0c;
-  color: #000000;
-  padding: 8px 16px;
+  border: 1px solid #333;
+  color: #333;
+  padding: 10px 16px;
   border-radius: 20px;
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: clamp(0.75rem, 2vw, 0.875rem);
   font-weight: 500;
   text-align: center;
+  flex: 1;
+  min-width: 80px;
 }
 
 .action-btn:hover {
   background: #52ca84;
   color: white;
   transform: translateY(-2px);
+  border-color: #52ca84;
 }
 
 .placeholder-message {
   text-align: center;
   color: #999;
   font-size: clamp(1rem, 3vw, 1.125rem);
-  margin-top: 100px;
+  margin-top: 60px;
 }
-/* ============================================== */
 
 /* ============================================== */
-/* Responsive=================================*/
-/*
-모바일 세로: 360px
-모바일 가로, 타블렛 세로: 600px
-타블렛 가로: 노트북: 800px
-데스크탑: 1200px or 1440px
-*/
+/* Responsive Design ============================= */
+/* ============================================== */
 
-/*
-~ 500px: 모바일 세로
-501px ~ 800px: 모바일 가로, 타블렛 세로
-801px ~ 1280px: 타블렛 가로, 노트북
-1281px ~: 데스크탑
-*/
-
-/** 모바일 세로 ================================= */
-@media screen and (max-width: 480px) {
-  .reservation-wrap {
-    padding: 10px;
-  }
-
-  .reservation-title {
-    padding: 15px;
+/* 큰 화면 (데스크탑) */
+@media screen and (min-width: 1281px) {
+  .reservation-wrap .container {
+    max-width: 1400px;
+    padding: 50px 30px;
   }
 
   .calendar-container,
   .detail-panel {
-    padding: 12px;
-  }
-
-  .event-container {
-    padding: 2px;
-  }
-
-  .event-item {
-    padding: 8px 10px;
-    gap: 10px;
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .event-img {
-    width: 40px;
-    height: 40px;
-    align-self: center;
-  }
-
-  .quick-actions {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 6px;
-  }
-
-  .calendar-grid {
-    gap: 3px;
-  }
-
-  .day {
-    min-height: 35px;
+    padding: 30px;
   }
 }
 
-/** 모바일 가로, 타블렛 세로 ================================= */
-@media screen and (max-width: 768px) {
-  .reservation-wrap {
-    padding: 15px;
-  }
-
-  .reservation-title {
-    padding: 20px;
-  }
-
+/* 중간 화면 (타블렛 가로, 작은 노트북) */
+@media screen and (max-width: 1280px) and (min-width: 769px) {
   .reservation-wrap .container {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    max-width: 100%;
-  }
-
-  .calendar-container,
-  .detail-panel {
-    padding: 15px;
-    max-width: 100%;
-  }
-
-  .calendar-container {
-    order: 1;
-  }
-
-  .detail-panel {
-    order: 2;
-    min-height: auto;
-  }
-
-  .nav-btn {
-    width: 35px;
-    height: 35px;
-    font-size: 16px;
-  }
-
-  .day-header {
-    padding: 8px 4px;
-  }
-
-  .event-item {
-    padding: 10px 12px;
-    gap: 12px;
-  }
-
-  .event-img {
-    width: 45px;
-    height: 45px;
-  }
-
-  .quick-actions {
-    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
-    gap: 8px;
-  }
-
-  .action-btn,
-  .none-action-btn {
-    padding: 6px 12px;
-  }
-}
-
-/** 타블렛 가로, 노트북====================== */
-@media screen and (max-width: 1024px) {
-  .reservation-wrap .container {
-    max-width: 900px;
+    max-width: 1000px;
     gap: 25px;
   }
 
@@ -468,19 +345,168 @@
     width: 50px;
     height: 50px;
   }
+}
+
+/* 타블렛 세로 */
+@media screen and (max-width: 768px) {
+  .reservation-wrap {
+    padding: 15px;
+  }
+
+  .reservation-title {
+    padding: 20px 15px;
+  }
+
+  .reservation-wrap .container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 15px;
+  }
+
+  .calendar-container {
+    order: 1;
+    padding: 20px;
+  }
+
+  .detail-panel {
+    order: 2;
+    padding: 20px;
+  }
+
+  .nav-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 16px;
+  }
+
+  .day-header {
+    padding: 10px 4px;
+  }
+
+  .day {
+    min-height: 35px;
+  }
+
+  .event-item {
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .event-img {
+    width: 45px;
+    height: 45px;
+  }
 
   .quick-actions {
-    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
     gap: 8px;
+  }
+
+  .action-btn,
+  .none-action-btn {
+    padding: 8px 12px;
+    min-width: 70px;
   }
 }
 
-/** 타블렛 가로, 노트북 =====================*/
-@media screen and (max-width: 1280px) {
+/* 모바일 */
+@media screen and (max-width: 480px) {
+  .reservation-wrap {
+    padding: 10px;
+  }
+
+  .reservation-title {
+    padding: 15px 10px;
+  }
+
+  .reservation-wrap .container {
+    padding: 10px;
+    gap: 15px;
+  }
+
+  .calendar-container,
+  .detail-panel {
+    padding: 15px;
+  }
+
+  .calendar-grid {
+    gap: 4px;
+  }
+
+  .day {
+    min-height: 32px;
+    font-size: 0.8rem;
+  }
+
+  .day-header {
+    padding: 8px 2px;
+    font-size: 0.7rem;
+  }
+
+  .nav-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+
+  .event-item {
+    padding: 10px;
+    gap: 10px;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .event-img {
+    width: 40px;
+    height: 40px;
+    align-self: center;
+  }
+
+  .event-info {
+    align-items: center;
+  }
+
+  .quick-actions {
+    gap: 6px;
+  }
+
+  .action-btn,
+  .none-action-btn {
+    padding: 6px 10px;
+    min-width: 60px;
+    font-size: 0.7rem;
+  }
+
+  .placeholder-message {
+    margin-top: 40px;
+  }
 }
 
-/** 데스크탑 ===============================*/
-@media screen and (min-width: 1281px) {
-}
+/* 매우 작은 모바일 */
+@media screen and (max-width: 360px) {
+  .reservation-title p {
+    font-size: 1.5rem;
+  }
 
-/* ============================================== */
+  .calendar-container,
+  .detail-panel {
+    padding: 12px;
+  }
+
+  .day {
+    min-height: 28px;
+    font-size: 0.75rem;
+  }
+
+  .event-item {
+    padding: 8px;
+  }
+
+  .quick-actions {
+    flex-direction: column;
+  }
+
+  .action-btn,
+  .none-action-btn {
+    width: 100%;
+  }
+}

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sdy.html</title>
+
+    <!-- seo 엔진 최적화 -->
+    <!-- 웹페이지의 설명을 정의 -->
+    <meta
+      name="description"
+      content="Discover the rich history and cultural heritage of Korea at the National Museum of Korea. A must-visit destination for international tourists."
+    />
+    <!-- 웹페이지와 관련된 키워드를 정의 -->
+    <meta
+      name="keywords"
+      content="National Museum of Korea, Korean history, Korean culture, museums in Seoul, Korean artifacts, Korean art, cultural tourism, Korean heritage"
+    />
+    <!-- 웹페이지의 저자를 정의 -->
+    <meta name="author" content="National Museum of Korea" />
+    <!-- 소셜 미디어에서 페이지가 공유될 때 사용되는 제목 -->
+    <meta
+      property="og:title"
+      content="National Museum of Korea - Discover Korean History and Culture"
+    />
+    <!-- 소셜 미디어에서 페이지가 공유될 때 표시되는 사이트 이름 -->
+    <meta property="og:site_name" content="National Museum of Korea" />
+    <!-- 소셜 미디어에서 페이지가 웹사이트임을 명시 -->
+    <meta property="og:type" content="website" />
+    <!-- Open Graph 프로토콜에서 사용되는 메타 태그의 속성 중 하나로, 페이지의 간략한 설명을 제공하는 데 사용 -->
+    <meta
+      property="og:description"
+      content="Explore the National Museum of Korea and experience the history, art, and culture of Korea through ancient artifacts and exhibitions."
+    />
+    <!-- 소셜 미디어에서 공유될 때 사용되는 URL -->
+    <meta property="og:url" content="" />
+    <!-- 소셜 미디어에서 페이지가 공유될 때 표시되는 이미지 -->
+    <meta property="og:image" content="" />
+
+    <!-- 파비콘 -->
+
+    <!-- css -->
+    <link rel="stylesheet" href="./css/main.css" />
+
+    <!-- Link Swiper's CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <!-- 영역별 css -->
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/main-banner.css" />
+    <link rel="stylesheet" href="css/review.css" />
+    <link rel="stylesheet" href="css/reservation.css" />
+    <link rel="stylesheet" href="css/display-1.css" />
+    <link rel="stylesheet" href="css/display-2.css" />
+    <link rel="stylesheet" href="css/activity.css" />
+    <link rel="stylesheet" href="css/kdh.css" />
+    <link rel="stylesheet" href="css/info.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+
+    <!-- js -->
+    <script src="js/jquery-1.12.3.js"></script>
+
+    <!-- 영역별 js -->
+    <script src="js/header.js"></script>
+    <script src="js/main-banner.js"></script>
+    <script src="js/review.js"></script>
+    <script src="js/reservation.js"></script>
+    <script src="js/display-1.js"></script>
+    <script src="js/display-2.js"></script>
+    <script src="js/activity.js"></script>
+    <script src="js/kdh.js"></script>
+    <script src="js/info.js"></script>
+    <script src="js/footer.js"></script>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- 폰트어썸 -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- FONT Link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://rsms.me/" />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/gsap.min.js"></script>
+  </head>
+  <body>
+    <!-- 상단 -->
+    <!-- 메인 배너 -->
+    <!-- 리뷰 -->
+    <!-- 예약 -->
+    <div class="reservation-wrap">
+      <div class="reservation-title">
+        <p class="reservation-title-text">Wanna Join a Guided Tour?</p>
+      </div>
+
+      <div class="container">
+        <!-- 캘린더 -->
+        <div class="calendar-container">
+          <div class="calendar-header">
+            <button class="nav-btn" id="prevBtn">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <div class="month-year" id="monthYear"></div>
+            <button class="nav-btn" id="nextBtn">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+
+          <div class="calendar-grid" id="calendar"></div>
+          <!-- 
+        <div class="calendar-weekdays">
+          <div>SUN</div>
+          <div>MON</div>
+          <div>TUE</div>
+          <div>WED</div>
+          <div>THU</div>
+          <div>FRI</div>
+          <div>SAT</div>
+        </div> 
+        --></div>
+
+        <div class="detail-panel" id="detailPanel">
+          <div class="placeholder-message">
+            📅 날짜를 선택하여 투어 정보를 확인하세요
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 전시-1 -->
+    <!-- 전시-2 -->
+    <!-- 액티비티 -->
+    <!-- 케데헌 -->
+    <div class="kdh-wrap">
+      <div class="kdh-img"></div>
+      <div class="kdh-container">
+        <div class="kdh-title">
+          <p class="kdh-title-text">GUESS WHO?</p>
+        </div>
+        <div class="kdh-content">
+          <p class="kdh-content-subtitle">
+            ⚔️Find Your Weapon with HUNTR/X !!⚔️
+          </p>
+          <p class="kdh-content-title">Demon Hunter Aptitude Test</p>
+          <div class="kdh-btn">
+            <div class="btn-bg"></div>
+            <button class="kdh-game-start">Game Start</button>
+          </div>
+        </div>
+
+        <!-- <div class="kdh-foot"></div> -->
+      </div>
+    </div>
+    <!-- 인포 -->
+    <!-- 하단 -->
+  </body>
+</html>

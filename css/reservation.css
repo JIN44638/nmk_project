@@ -354,11 +354,57 @@
     padding: 15px;
   }
 
-  .calendar-container,
-  .detail-panel {
-    padding: 12px;
+  /* 
+    .reservation-title {
+    padding: 15px 10px;
+  }
+  */
+
+  /* 
+    .reservation-wrap .container {
+    padding: 10px;
+    gap: 15px;
   }
 
+  */
+  .calendar-container,
+  .detail-panel {
+    padding: 15px;
+  }
+
+  .calendar-grid {
+    gap: 4px;
+  }
+
+  .day {
+    min-height: 35px;
+  }
+  /* 
+  .calendar-grid {
+    gap: 4px;
+  } 
+    */
+
+  /* 
+    
+  .day {
+    min-height: 32px;
+    font-size: 0.8rem;
+  }
+
+  .day-header {
+    padding: 8px 2px;
+    font-size: 0.7rem;
+  }
+
+  .nav-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+
+    
+    */
   .event-container {
     padding: 2px;
   }
@@ -380,14 +426,6 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 6px;
   }
-
-  .calendar-grid {
-    gap: 3px;
-  }
-
-  .day {
-    min-height: 35px;
-  }
 }
 
 /** 모바일 가로, 타블렛 세로 ================================= */
@@ -397,27 +435,33 @@
   }
 
   .reservation-title {
-    padding: 20px;
+    padding: 20px 15px;
   }
 
   .reservation-wrap .container {
     grid-template-columns: 1fr;
     gap: 20px;
+    /*  */
     max-width: 100%;
+
+    /* padding: 15px; */
   }
 
-  .calendar-container,
+  /* .calendar-container,
   .detail-panel {
     padding: 15px;
     max-width: 100%;
-  }
+  } */
 
   .calendar-container {
     order: 1;
+
+    /* padding: 20px; */
   }
 
   .detail-panel {
     order: 2;
+    /* padding: 20px; */
     min-height: auto;
   }
 
@@ -428,10 +472,15 @@
   }
 
   .day-header {
+    /* padding: 10px 4px; */
     padding: 8px 4px;
+  }
+  .day {
+    min-height: 35px;
   }
 
   .event-item {
+    /* padding: 12px; */
     padding: 10px 12px;
     gap: 12px;
   }
@@ -442,6 +491,7 @@
   }
 
   .quick-actions {
+    /*-*/
     grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
     gap: 8px;
   }
@@ -449,6 +499,10 @@
   .action-btn,
   .none-action-btn {
     padding: 6px 12px;
+    /* 
+    padding: 8px 12px;
+    min-width: 70px;
+     */
   }
 }
 

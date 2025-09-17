@@ -299,6 +299,7 @@
 }
 
 .action-btn:hover {
+  border: none;
   background: #52ca84;
   color: white;
   transform: translateY(-2px);

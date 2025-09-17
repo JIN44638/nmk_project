@@ -38,45 +38,20 @@
     <meta property="og:image" content="" />
 
     <!-- 파비콘 -->
-
-    <!-- css -->
-    <link rel="stylesheet" href="./css/main.css" />
-
-    <!-- Link Swiper's CSS -->
     <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+      rel="icon"
+      type="image/png"
+      href="images/favicon/favicon-96x96.png"
+      sizes="96x96"
     />
-
-    <!-- 영역별 css -->
-    <link rel="stylesheet" href="css/header.css" />
-    <link rel="stylesheet" href="css/main-banner.css" />
-    <link rel="stylesheet" href="css/review.css" />
-    <link rel="stylesheet" href="css/reservation.css" />
-    <link rel="stylesheet" href="css/display-1.css" />
-    <link rel="stylesheet" href="css/display-2.css" />
-    <link rel="stylesheet" href="css/activity.css" />
-    <link rel="stylesheet" href="css/kdh.css" />
-    <link rel="stylesheet" href="css/info.css" />
-    <link rel="stylesheet" href="css/footer.css" />
-
-    <!-- js -->
-    <script src="js/jquery-1.12.3.js"></script>
-
-    <!-- 영역별 js -->
-    <script src="js/header.js"></script>
-    <script src="js/main-banner.js"></script>
-    <script src="js/review.js"></script>
-    <script src="js/reservation.js"></script>
-    <script src="js/display-1.js"></script>
-    <script src="js/display-2.js"></script>
-    <script src="js/activity.js"></script>
-    <script src="js/kdh.js"></script>
-    <script src="js/info.js"></script>
-    <script src="js/footer.js"></script>
-
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link rel="icon" type="image/svg+xml" href="images/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="images/favicon/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="images/favicon/apple-touch-icon.png"
+    />
+    <link rel="manifest" href="images/favicon/site.webmanifest" />
 
     <!-- 폰트어썸 -->
     <link
@@ -97,17 +72,192 @@
     <link rel="preconnect" href="https://rsms.me/" />
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
 
-    <!-- Font Awesome -->
+    <!-- Link Swiper's CSS -->
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
+
+    <!-- 영역별 css -->
+    <link rel="stylesheet" href="./css/main.css" />
+
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/main-banner.css" />
+    <link rel="stylesheet" href="css/review.css" />
+    <link rel="stylesheet" href="css/reservation.css" />
+    <link rel="stylesheet" href="css/display-1.css" />
+    <link rel="stylesheet" href="css/display-2.css" />
+    <link rel="stylesheet" href="css/activity.css" />
+    <link rel="stylesheet" href="css/kdh.css" />
+    <link rel="stylesheet" href="css/info.css" />
+    <link rel="stylesheet" href="css/footer.css" />
 
     <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/gsap.min.js"></script>
+
+    <!-- js -->
+    <script src="js/jquery-1.12.3.js"></script>
+
+    <!-- 영역별 js -->
+    <script src="js/header.js"></script>
+    <script src="js/main-banner.js"></script>
+    <script src="js/review.js"></script>
+    <script src="js/reservation.js"></script>
+    <script src="js/display-1.js"></script>
+    <script src="js/display-2.js"></script>
+    <script src="js/activity.js"></script>
+    <script src="js/kdh.js"></script>
+    <script src="js/info.js"></script>
+    <script src="js/footer.js"></script>
+
+    <style>
+      .qwer {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+      }
+
+      .container1 {
+        background: white;
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .hh {
+        text-align: center;
+        color: #333;
+        margin-bottom: 30px;
+      }
+
+      .auth-section {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .ww {
+        background: #4285f4;
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        margin: 0 10px;
+        transition: all 0.3s ease;
+      }
+
+      .ww:hover {
+        background: #3367d6;
+        transform: translateY(-2px);
+      }
+
+      .ww:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      #signout_button {
+        background: #dc3545;
+      }
+
+      #signout_button:hover {
+        background: #c82333;
+      }
+
+      .status {
+        text-align: center;
+        margin: 20px 0;
+        padding: 10px;
+        border-radius: 8px;
+        font-weight: bold;
+      }
+
+      .status.success {
+        background: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+      }
+
+      .status.error {
+        background: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+      }
+
+      .status.loading {
+        background: #d1ecf1;
+        color: #0c5460;
+        border: 1px solid #bee5eb;
+      }
+
+      .data-section {
+        margin-top: 30px;
+      }
+
+      .data-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .data-table th,
+      .data-table td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #eee;
+      }
+
+      .data-table th {
+        background: #f8f9fa;
+        font-weight: bold;
+        color: #333;
+      }
+
+      .data-table tr:hover {
+        background: #f8f9fa;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      .loading-spinner {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: 3px solid #f3f3f3;
+        border-top: 3px solid #3498db;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin-right: 10px;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
   </head>
   <body>
     <!-- 상단 -->
+
+    <!-- 기본 헤더 -->
+
+    <!-- 햄버거 네비게이션 -->
+
     <!-- 메인 배너 -->
     <!-- 리뷰 -->
     <!-- 예약 -->
@@ -130,17 +280,7 @@
           </div>
 
           <div class="calendar-grid" id="calendar"></div>
-          <!-- 
-        <div class="calendar-weekdays">
-          <div>SUN</div>
-          <div>MON</div>
-          <div>TUE</div>
-          <div>WED</div>
-          <div>THU</div>
-          <div>FRI</div>
-          <div>SAT</div>
-        </div> 
-        --></div>
+        </div>
 
         <div class="detail-panel" id="detailPanel">
           <div class="placeholder-message">
@@ -172,6 +312,34 @@
         </div>
 
         <!-- <div class="kdh-foot"></div> -->
+      </div>
+    </div>
+    <div class="qwer">
+      <div class="container1">
+        <div class="auth-section">
+          <button class="ww" id="authorize_button" onclick="handleAuthClick()">
+            구글 계정으로 로그인
+          </button>
+          <button
+            class="ww"
+            id="signout_button"
+            onclick="handleSignoutClick()"
+            class="hidden"
+          >
+            로그아웃
+          </button>
+        </div>
+
+        <div id="status" class="status hidden"></div>
+
+        <div class="data-section">
+          <h2 class="hh">스프레드시트 데이터</h2>
+          <div id="content">
+            <p style="text-align: center; color: #666">
+              먼저 구글 계정으로 로그인해주세요.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
     <!-- 인포 -->

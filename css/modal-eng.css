@@ -88,6 +88,13 @@
   }
 }
 
+@media (max-width: 390px) {
+ .modal-wrap .closeBtn p{
+  font-size: 20px ;
+  /* font-weight: bold; */
+ }
+}
+
 .loading-message {
   position: fixed;
   top: 50%;

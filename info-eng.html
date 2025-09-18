@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>관람 안내 – National Museum of Korea</title>
+
+    <!-- 폰트어썸 -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+    <style>
+      /* ----------------------------------------- */
+      /* 공통 리셋 */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Noto Sans KR", sans-serif;
+        margin: 0;
+        color: var(--text);
+        line-height: 1.6;
+        background: linear-gradient(180deg, var(--bg-1), var(--bg-2));
+      }
+
+      :root {
+        --text: #fff;
+        --bg-1: #101010;
+        --bg-2: #1a1a1a;
+        --line: rgba(255, 255, 255, 0.2);
+        --muted: #aaa;
+        --accent: #fff9eb;
+        --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        --radius: 12px;
+      }
+      /* ====================네비 로케이션============================= */
+      .navi-location {
+        width: 100%;
+        margin: auto;
+        max-width: 1500px;
+        color: #fff;
+      }
+
+      .navi-location > ul {
+        display: flex;
+      }
+      .navi-location > ul > li > a {
+        color: #fff;
+        font-size: clamp(12px, 1.5vw, 18px);
+      }
+
+      /* ===========바디 주의===================== */
+      body {
+        background-color: black;
+      }
+      /* =======================해더 앤 토글 시작============================== */
+      /* 헤더 */
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 99999;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 14px 22px;
+        background: rgba(10, 10, 12, 0.65);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid #ccc;
+        color: #fff;
+      }
+      .brand {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        cursor: pointer;
+      }
+      .brand svg {
+        width: 30px;
+        height: 30px;
+        fill: #fff;
+        opacity: 0.92;
+      }
+      .sub-title {
+        opacity: 0.7;
+        font-size: 14px;
+      }
+
+      /* 사이드 메뉴 */
+      .side-menu {
+        position: fixed;
+        top: 0;
+        left: -260px;
+        width: 250px;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.9);
+        color: #fff;
+        transition: left 0.3s ease;
+        padding: 80px 20px 20px;
+        z-index: 999;
+      }
+      .side-menu.open {
+        left: 0;
+      }
+      .side-menu ul {
+        list-style: none;
+        padding: 0; /* 추가 */
+        margin: 0; /* 추가 */
+      }
+      .side-menu li {
+        margin: 0; /* 수정: 불필요한 여백 제거 */
+      }
+      .side-menu a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 16px;
+        display: block; /* 추가 */
+        padding: 12px 0; /* 추가: 일정한 간격 */
+        line-height: 1.5; /* 추가 */
+      }
+      .side-menu a:hover {
+        text-decoration: underline;
+      }
+
+      /* 아코디언 */
+      .accordion-header {
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 16px;
+        width: 100%;
+        text-align: left;
+        padding: 12px 0; /* 수정: 메뉴와 동일 간격 */
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        line-height: 1.5; /* 추가 */
+      }
+      .accordion-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease; /* 조금 더 부드럽게 */
+        margin-left: 10px;
+      }
+      .accordion-item.open .accordion-content {
+        max-height: 300px; /* 충분히 큰 값 */
+      }
+      /* =======================헤더 앤 토글 끝============================== */
+
+      /* ===========================레이아웃============================== */
+      .information-wrap {
+        width: 100%;
+      }
+      .information-wrap-inner {
+        width: 90%;
+        margin: auto;
+      }
+      .wrap {
+        max-width: 1140px;
+        margin: 40px auto 60px;
+        padding: 0 20px;
+      }
+
+      /* =============================사진 영역============================= */
+      .info-image {
+        width: 100%;
+        margin: auto;
+        max-width: 1300px;
+      }
+      .info-image > img {
+        width: 100%;
+      }
+
+      /* ===============================로케이션======================= */
+      .navi-location {
+        width: 100%;
+        max-width: 1300px;
+        margin: auto;
+      }
+      .navi-location > ul {
+        display: flex;
+        gap: 5px;
+      }
+
+      /* ===========================히어로 영역=========================== */
+      .hero {
+        display: grid;
+        grid-template-columns: 1.4fr 0.9fr;
+        gap: 24px;
+
+        margin: 0 auto 28px;
+        max-width: 1500px;
+        padding: 0 20px;
+      }
+      .hero-card {
+        border: 2px solid rgba(3, 3, 3, 0.2);
+        border-radius: 20px;
+        box-shadow: var(--shadow);
+        padding: 40px;
+        backdrop-filter: blur(12px);
+      }
+      .display {
+        font-family: "Noto Sans KR";
+        font-weight: 700;
+        font-size: clamp(30px, 4.2vw, 64px);
+        line-height: 1.06;
+        margin: 0.25rem 0 0.6rem;
+      }
+      .eyebrow {
+        color: var(--muted);
+        font-size: 13px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      .sub {
+        color: var(--muted);
+        margin: 8px 0 0;
+      }
+      .time-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 16px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid var(--line);
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        margin-top: 10px;
+      }
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 12px var(--accent);
+      }
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .cta-row {
+        display: flex;
+        gap: 12px;
+        margin-top: 24px;
+        flex-wrap: wrap;
+      }
+      .btn {
+        position: relative;
+        padding: 12px 16px;
+        border-radius: 14px;
+        color: #111;
+        text-decoration: none;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        transition: transform 0.25s ease, box-shadow 0.25s ease,
+          background 0.25s ease;
+        background: linear-gradient(135deg, #ffffff, #bebebe);
+      }
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 24px rgba(255, 255, 255, 0.35);
+      }
+
+      /* ============================카드 그리드========================== */
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 18px;
+        margin: 30px auto 0;
+        max-width: 1140px;
+        padding: 0 20px;
+      }
+      .card > h3 {
+        color: #fff;
+      }
+      .tile {
+        background: linear-gradient(
+          135deg,
+          rgba(24, 24, 30, 0.78),
+          rgba(12, 12, 16, 0.78)
+        );
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 22px;
+      }
+      .tile h3 {
+        margin: 0 0 8px;
+        font-size: 18px;
+        font-weight: 700;
+      }
+      .muted {
+        color: var(--muted);
+        display: block;
+        padding-left: 16px;
+      }
+      .list {
+        margin: 0;
+        padding-left: 16px;
+      }
+      .list li {
+        margin: 0.4rem 0;
+      }
+
+      /* =====================섹션 구분선 ========================== */
+      .section {
+        margin-top: 42px;
+      }
+      .section > h2 {
+        margin: 0 0 14px;
+        font-weight: 600;
+        font-size: clamp(22px, 2.2vw, 30px);
+      }
+      .note {
+        border-left: 1.5px solid var(--accent);
+        background: linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.1),
+          rgba(0, 0, 0, 0.03) 35%,
+          transparent
+        );
+        padding: 10px 12px;
+        color: var(--muted);
+        border-radius: 8px;
+      }
+      .divider {
+        height: 1px;
+        width: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.28),
+          transparent
+        );
+        margin: 36px 0 12px;
+      }
+      .footer {
+        max-width: 1140px;
+        margin: 56px auto 28px;
+        padding: 16px 20px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 14px;
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      @media (max-width: 550px) {
+        .hero {
+          grid-template-columns: 1fr; /* 한 줄 */
+        }
+      }
+      /* ======================푸터================ */
+      .footer_wrap {
+        background-color: #191918;
+        font-family: "Montserrat", sans-serif;
+        padding-bottom: 10px;
+      }
+      .footer_wrap .footerinner {
+        position: relative;
+        width: 90%;
+        max-width: 1300px;
+        margin: auto;
+        padding-top: 20px;
+      }
+      .footer_wrap .footer_top {
+        border-bottom: 1px solid #fff;
+        display: flex;
+        justify-content: space-between;
+      }
+      .footer_wrap .footerLogo > a {
+        padding: 20px 0;
+        display: block;
+        color: #fff;
+        font-size: clamp(11px, 5vw, 28px);
+        font-weight: 800;
+        /* white-space: nowrap; */
+      }
+      .footer_wrap .footer-right {
+        width: 50%;
+        /* display: flex; */
+      }
+      .footer_wrap .footerMenu {
+        display: flex;
+        gap: 2%;
+        text-align: end;
+        justify-content: flex-end;
+        padding-bottom: 10px;
+      }
+      .footer_wrap .footerMenu > li {
+        color: #fff;
+        /* width: calc(100% / 5); */
+        font-size: clamp(11px, 3vw, 16px);
+        white-space: nowrap;
+      }
+      .footer_wrap .footerIcon {
+        display: flex;
+        margin-left: auto;
+        width: 5%;
+        max-width: 80px;
+        justify-content: flex-end;
+        gap: 20%;
+      }
+      .footer_wrap .footerIcon > img {
+        width: 100%;
+        display: block;
+      }
+      .footer_wrap .footer-bottom {
+        padding-top: 10px;
+        display: flex;
+        justify-content: space-between;
+      }
+      .footer_wrap .footer-bottom > img {
+        width: 100%;
+        max-width: 200px;
+      }
+      .footer_wrap .footer-bottom > span {
+        color: #8a8a8a;
+        font-size: clamp(11px, 2vw, 16px);
+      }
+
+      /* 퀵 메뉴 fix 메뉴 */
+      .fix-menu-wrap {
+        position: fixed;
+        bottom: 10%;
+        right: 3%;
+        /* width: 65px; */
+        gap: 10px;
+        width: 10%;
+        max-width: 65px;
+        min-width: 45px;
+
+        display: flex;
+        flex-direction: column;
+        z-index: 999999;
+      }
+      .fix-menu-wrap > .fix-menu {
+        position: relative;
+      }
+      .fix-menu-wrap > .fix-menu:hover span {
+        display: block;
+      }
+      .fix-menu-wrap > .fix-menu span {
+        position: absolute;
+        left: -140px;
+        top: 15px;
+        background-color: #5646b6;
+        color: #fff;
+        font-weight: 800;
+        border-radius: 5px;
+        padding: 1% 3%;
+        display: none;
+      }
+      .fix-menu-wrap > .fix-menu > img {
+        width: 100%;
+      }
+
+      .fix-menu-wrap .top-btn {
+        width: 100%;
+        backdrop-filter: blur(20px);
+        border-radius: 50%;
+        /* background-color: #5646B6; */
+        line-height: 15px;
+      }
+      .fix-menu-wrap .top-btn img {
+        width: 100%;
+      }
+
+      @media screen and (max-width: 1030px) {
+        .footer_wrap .footer_top {
+          flex-direction: column;
+          text-align: center;
+        }
+        .footer_wrap .footer-right {
+          width: 100%;
+        }
+        .footer_wrap .footerMenu {
+          /* width: 100%; */
+          text-align: center;
+          justify-content: center;
+        }
+        .footer_wrap .footerLogo > a {
+          padding-bottom: 10px;
+        }
+        .footer_wrap .footerIcon {
+          width: 30px;
+          padding-bottom: 5px;
+        }
+      }
+      @media screen and (max-width: 500px) {
+        .footer_wrap .footerIcon {
+          max-width: 50px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 심플 헤더 -->
+    <header class="site-header">
+      <div class="brand" id="brandBtn">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3 17h18v2H3v-2zm0-6h18v2H3v-2zm0-6h18v2H3V5z" />
+        </svg>
+        <b>National Museum of Korea</b>
+      </div>
+      <div class="sub-title">Visitor Information</div>
+    </header>
+
+    <nav id="sideMenu" class="side-menu">
+      <ul>
+        <li class="accordion-item">
+          <button class="accordion-header">
+            Visitor Info <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <ul class="accordion-content">
+            <li><a href="#">Guidelines</a></li>
+            <li><a href="#">Reservations</a></li>
+            <li><a href="#">FAQs</a></li>
+          </ul>
+        </li>
+
+        <li class="accordion-item">
+          <button class="accordion-header">
+            Exhibitions <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <ul class="accordion-content">
+            <li><a href="#">Permanent Exhibitions</a></li>
+            <li><a href="#">Special Exhibitions</a></li>
+            <li><a href="#">E-Museum</a></li>
+          </ul>
+        </li>
+
+        <li class="accordion-item">
+          <button class="accordion-header">
+            Cultural Events <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <ul class="accordion-content">
+            <li><a href="#">K-Demon Hunters Events</a></li>
+            <li><a href="#">Stamp Events</a></li>
+            <li><a href="#">Cultural Experiences</a></li>
+          </ul>
+        </li>
+
+        <li><a href="#">Goods</a></li>
+        <li><a href="#">About the Museum</a></li>
+        <li>
+          <div class="search-icon">
+            <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <!-- ==============네비시작============-->
+    <div class="navi-location">
+      <ul>
+        <li>
+          <a href="index.html"><i class="fa-solid fa-house"></i>&nbsp;Home</a>>
+        </li>
+        <li><a href="index.html">&nbsp;Visitor Info</a>></li>
+        <li><a href="index.html">&nbsp;Guidelines</a></li>
+      </ul>
+
+    </div>
+    <!-- ==============네비끝================== -->
+    <div class="information-wrap">
+      <div class="information-wrap-inner">
+        <div class="info-image">
+          <img src="images/info/imgi_out.png" alt="외부사진" />
+        </div>
+
+        <main class="wrap">
+          <!-- 히어로: 오늘의 관람 정보 -->
+<section class="hero">
+  <div class="hero-card">
+    <div class="eyebrow">Visitor Information</div>
+    <h1 class="h1">Today's Opening Hours</h1>
+    <div class="time-badge">
+      <span class="time-dot"></span>
+      <span>10:00 – 18:00</span>
+      <span class="pill">Last Entry 17:30</span>
+    </div>
+    <p class="sub">Wed & Sat Night Opening: 10:00 – 21:00 (Last Entry 20:30)</p>
+    <div class="cta-row">
+      <a href="#" class="btn accent">Book a Visit</a>
+      <a href="#" class="btn">Directions</a>
+    </div>
+  </div>
+
+  <div class="hero-card">
+    <div class="eyebrow">Admission</div>
+    <h2
+      class="h1"
+      style="font-size: clamp(24px, 3.2vw, 36px); margin-top: 0"
+    >
+      Admission Fee
+    </h2>
+    <div class="kv">Free</div>
+    <p class="muted">Some special exhibitions require tickets</p>
+    <div
+      style="
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 8px;
+      "
+    >
+      <span class="pill">Permanent Exhibitions: Free</span>
+      <span class="pill">Outdoor Garden 07:00–22:00</span>
+      <span class="pill">Families & Groups Welcome</span>
+    </div>
+  </div>
+</section>
+
+<!-- 핵심 카드 3종 -->
+<section class="grid">
+  <article class="card">
+    <h3>Closed Days</h3>
+    <p class="muted">January 1, Lunar New Year & Chuseok Day, annual maintenance</p>
+    <ul class="list">
+      <li>2025 Temporary Closures: Apr 7 (Mon), Nov 3 (Mon)</li>
+    </ul>
+  </article>
+
+  <article class="card">
+    <h3>Facilities</h3>
+    <ul class="list">
+      <li>Food Court: Closes 21:00 (Last Order 20:30)</li>
+      <li>Restaurant: Closes 21:00 (Last Order 20:30)</li>
+      <li>Convenience Store: Closes 21:00</li>
+    </ul>
+  </article>
+
+  <article class="card">
+    <h3>Contact & Location</h3>
+    <p class="muted">137 Seobinggo-ro, Yongsan-gu, Seoul (04383)</p>
+    <p class="muted">Tel: 02-2077-9000</p>
+    <div class="cta-row" style="margin-top: 8px">
+      <a class="btn" href="#">View Map</a>
+      <a class="btn" href="#">Parking Info</a>
+    </div>
+  </article>
+</section>
+
+<!-- 유의사항 / 안내 -->
+<section class="section">
+  <h2>Visitor Guidelines</h2>
+  <div class="card" style="padding: 18px">
+    <ul class="list">
+      <li>No food or flash photography inside exhibition halls.</li>
+      <li>Strollers & wheelchairs available at the Information Desk.</li>
+      <li>Group visits are recommended to reserve in advance.</li>
+    </ul>
+    <p class="note" style="margin-top: 8px">
+      Guide dogs are welcome. For safety, please follow staff instructions.
+    </p>
+  </div>
+</section>
+
+<!-- 자주 찾는 링크 -->
+<section class="section">
+  <h2>Quick Links</h2>
+  <div class="grid">
+    <a class="card" href="#">
+      <h3>Permanent Exhibitions</h3>
+      <p class="muted">Explore our key collections and ongoing exhibits.</p>
+    </a>
+    <a class="card" href="#">
+      <h3>Education & Programs</h3>
+      <p class="muted">Family activities, tours, and workshop schedules.</p>
+    </a>
+    <a class="card" href="#">
+      <h3>Special Exhibition Tickets</h3>
+      <p class="muted">Paid exhibitions can be reserved online.</p>
+    </a>
+  </div>
+</section>
+
+        </main>
+        <!-- 인포메이션 랩 이너 디브 닫 -->
+      </div>
+      <!-- 인포메션 랩 디브 닫 -->
+    </div>
+
+    <!-- 본문끝~~~ -->
+
+    <!-- ====================푸터시작================================ -->
+
+
+    <!-- ====================푸터 끝================================ -->
+
+    <script>
+      // =================머지후 지우기=============================
+      // // 토글 js
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const brandBtn = document.querySelector("#brandBtn");
+        const sideMenu = document.querySelector("#sideMenu");
+
+        // 메뉴 열닫
+        brandBtn.addEventListener("click", () => {
+          sideMenu.classList.toggle("open");
+        });
+
+        // 외부 클릭 시 닫기
+        document.addEventListener("click", (e) => {
+          if (!sideMenu.contains(e.target) && !brandBtn.contains(e.target)) {
+            sideMenu.classList.remove("open");
+          }
+        });
+
+        // 아코디언
+        const accordions = document.querySelectorAll(".accordion-item");
+        accordions.forEach((item) => {
+          const header = item.querySelector(".accordion-header");
+          header.addEventListener("click", () => {
+            // 다른 아코디언 닫기
+            accordions.forEach((i) => {
+              if (i !== item) i.classList.remove("open");
+            });
+            //  토글
+            item.classList.toggle("open");
+          });
+        });
+      });
+      // =================머지후 지우기=============================
+    </script>
+  </body>
+</html>

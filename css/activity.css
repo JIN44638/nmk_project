@@ -86,7 +86,7 @@
 @media (max-width: 768px) {
   .activity {
     flex-direction: column;
-    margin-bottom: 200px;
+    margin-bottom: 0px;
   }
 
   .activity-txt {
@@ -103,7 +103,7 @@
     height: 70vh; /* 모바일에서 좀 더 높게 */
     /* margin-top: 10vw; */
     padding-top: 24px;
-    padding-bottom: 32px;
+    /* padding-bottom: 32px; */
   }
 }
 /* =============== Responsive =============== */

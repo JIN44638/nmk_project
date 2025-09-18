@@ -15,8 +15,11 @@
   background-attachment: fixed, scroll;
 }
 .reservation-title {
-  padding: 40px;
-  align-items: center;
+  padding: 0 20px;
+  white-space: nowrap;
+  text-align: center;
+  font-size: clamp(17px, 3vw, 50px);
+  color: white;
 }
 
 .reservation-title p {
@@ -97,8 +100,8 @@
 }
 
 .nav-btn {
-  background: #9900ff;
-  color: white;
+  background: rgb(173, 14, 152);
+  color: rgb(255, 255, 255);
   border: none;
   width: 40px;
   height: 40px;
@@ -153,7 +156,7 @@
 }
 
 .day.today {
-  background: #52ca84;
+  background: rgb(173, 14, 152);
   color: white;
   font-weight: bold;
 }
@@ -187,7 +190,7 @@
 .selected-date {
   font-size: clamp(1.5rem, 4vw, 1.75rem);
   font-weight: bold;
-  color: #52ca84;
+  color: rgb(173, 14, 152);
   margin-bottom: 5px;
 }
 
@@ -315,7 +318,7 @@
 }
 
 .action-btn:hover {
-  background: #52ca84;
+  background: rgb(173, 14, 152);
   color: white;
   transform: translateY(-2px);
 }
@@ -343,6 +346,17 @@
 801px ~ 1280px: 타블렛 가로, 노트북
 1281px ~: 데스크탑
 */
+@media screen and (max-width: 390px) {
+  .calendar-container {
+    transform: translateX(-4%);
+  }
+  .reservation-wrap .container{
+    justify-content: center;
+  }
+  /* .reservation-wrap {
+    height: 800px;
+  } */
+}
 
 /** 모바일 세로 ================================= */
 @media screen and (max-width: 480px) {
@@ -446,6 +460,18 @@
 
     /* padding: 15px; */
   }
+
+  @media screen and (max-width: 768px) {
+  .reservation-wrap .container {
+    justify-items: center;
+  }
+  .calendar-container {
+    transform: translateX(1%);
+  }
+  /* .reservation-wrap {
+    height: 800px;
+  } */
+}
 
   /* .calendar-container,
   .detail-panel {

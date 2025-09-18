@@ -12,7 +12,7 @@
   background-size: cover, 100% 100%;
   background-position: center, center;
   background-repeat: no-repeat, no-repeat;
-  background-attachment: fixed, scroll;
+  /* background-attachment: fixed, scroll; */
 }
 .reservation-title {
   padding: 0 20px;
@@ -489,6 +489,8 @@
     order: 2;
     /* padding: 20px; */
     min-height: auto;
+    min-width: 380px;
+    width: 57%;
   }
 
   .nav-btn {

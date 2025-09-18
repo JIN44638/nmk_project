@@ -12,7 +12,7 @@
   background-size: cover, 100% 100%;
   background-position: center, center;
   background-repeat: no-repeat, no-repeat;
-  background-attachment: fixed, scroll;
+  /* background-attachment: fixed, scroll; */
 }
 .reservation-title {
   padding: 40px;
@@ -346,13 +346,15 @@
 @media screen and (max-width: 390px) {
   .calendar-container {
     transform: translateX(-4%);
+    min-width: 345px !important;
   }
-  .reservation-wrap .container{
+  .detail-panel{
+     min-width: 345px !important;
+  }
+  .reservation-wrap .container {
     justify-content: center;
   }
-  /* .reservation-wrap {
-    height: 800px;
-  } */
+ 
 }
 
 /** 모바일 세로 ================================= */
@@ -437,8 +439,16 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 6px;
   }
+  .reservation-wrap .container {
+    padding: 0;
+  }
 }
-
+@media screen and (max-width: 410px) {
+  .calendar-container.show,
+  .detail-panel.show {
+    padding: 10px;
+  }
+}
 /** 모바일 가로, 타블렛 세로 ================================= */
 @media screen and (max-width: 768px) {
   .reservation-wrap {
@@ -459,16 +469,16 @@
   }
 
   @media screen and (max-width: 768px) {
-  .reservation-wrap .container {
-    justify-items: center;
-  }
-  .calendar-container {
-    transform: translateX(1%);
-  }
-  /* .reservation-wrap {
+    .reservation-wrap .container {
+      justify-items: center;
+    }
+    .calendar-container {
+      transform: translateX(1%);
+    }
+    /* .reservation-wrap {
     height: 800px;
   } */
-}
+  }
 
   /* .calendar-container,
   .detail-panel {
@@ -478,7 +488,8 @@
 
   .calendar-container {
     order: 1;
-
+    width: 57%;
+    min-width: 380px;
     /* padding: 20px; */
   }
 
@@ -486,6 +497,8 @@
     order: 2;
     /* padding: 20px; */
     min-height: auto;
+    min-width: 380px;
+    width: 57%;
   }
 
   .nav-btn {

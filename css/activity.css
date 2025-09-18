@@ -1,0 +1,120 @@
+.activity-wrap {
+  padding: 3vw;
+  padding-top: 7vw;
+  padding-bottom: 7vw;
+  background-color: #000000;
+}
+
+.activity {
+  display: flex;
+  gap: 5vw;
+}
+
+.activity-txt {
+  margin-top: 10vw;
+  margin-left: 10vw;
+}
+
+.activity h1 {
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-size: clamp(20px, 4vw, 50px);
+  white-space: nowrap;
+}
+
+.activity h6 {
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+  font-size: clamp(15px, 1.2vw, 23px);
+  white-space: nowrap;
+}
+
+.activity h3 a {
+  color: #fff;
+  /* font-family: "Pretendard", sans-serif; */
+  font-weight: 100;
+  font-size: clamp(15px, 1.5vw, 25px);
+  white-space: nowrap;
+  display: block;
+}
+
+/* Goto (arrow + text) */
+.activity .goto {
+  display: flex;
+  align-items: center;
+  gap: 0.5vw;
+  margin-top: 2vw;
+}
+.activity .goto .imgbox {
+  width: 1vw;
+}
+.activity .goto .imgbox img {
+  width: 100%;
+  display: block;
+}
+
+/* =============== Swiper: Activity (vertical, scroll-down illusion) =============== */
+/* 전역 테마에서 margin-right 등을 강제로 주는 경우가 있어 우선 무력화 */
+.swiper-activity {
+  margin-top: 5vw;
+  width: 100%;
+  max-width: 800px;
+  height: 550px; /* 세로 영역 */
+  overflow: hidden;
+}
+.swiper-activity .swiper-slide {
+  height: 550px;
+  filter: brightness(0.7);
+  opacity: 0.8;
+  transition: all 0.5s; 
+}
+
+.swiper-activity .swiper-slide img {
+  width: 100% !important;
+    object-fit: cover !important;
+}
+
+.swiper-activity .swiper-slide-active {
+  width: 100% !important;
+  height: 400px !important; /* 중앙 강조 */
+  filter: brightness(1) !important;
+  opacity: 1;
+}
+
+/* =============== Responsive =============== */
+@media (max-width: 768px) {
+  .activity {
+    flex-direction: column;
+    margin-bottom: 200px;
+  }
+
+  .activity-txt {
+    margin-top: 12vw;
+    margin-left: 6vw;
+  }
+
+  .goto .imgbox {
+    width: 3.6vw;
+  }
+
+  .swiper-activity {
+    max-width: 60vw;
+    height: 70vh; /* 모바일에서 좀 더 높게 */
+    /* margin-top: 10vw; */
+    padding-top: 24px;
+    padding-bottom: 32px;
+  }
+}
+/* =============== Responsive =============== */
+@media (max-width: 390px) {
+  .activity-wrap {
+  padding-bottom: 0 !important;
+  height: 70vh;
+}
+
+}
+
+.activity-txt h3{
+  font-weight: 100;
+}

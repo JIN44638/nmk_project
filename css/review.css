@@ -1,0 +1,42 @@
+.review-wrap{
+  padding-top: 15vw;
+  padding-bottom: 10vw;
+  background-color: black;
+}
+
+.review .swiper-container-review {
+  max-width: 100%;
+  overflow: hidden; /* or overflow: clip; */
+  margin-top: 6vw;
+}
+
+/* ★ 오른쪽 여백 개입 가능성 차단: 구버전 테마의 margin-right 무력화 */
+.review .swiper-slide {
+  margin: 0 !important;   /* ★ */
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+.review-txt-1 {
+  color: white;
+  font-size: clamp(20px, 4vw, 50px);
+  font-weight: bold;
+  text-align: right;
+  padding-right: 5vw;
+}
+
+.review-txt-2 {
+  color: white;
+  font-size: clamp(15px, 1.5vw, 25px);
+  font-weight: lighter;
+  text-align: right;
+  padding-right: 5vw;
+}
+
+.review .swiper-slide img{
+  width: 80%;
+  display: block;
+  margin: 0 auto;
+}
+

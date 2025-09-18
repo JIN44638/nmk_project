@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Game Start</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+
+    body {
+      width:100vw;
+      height:100vh;
+      overflow:hidden;
+      background:url("배경이미지.png") no-repeat center/cover;
+      font-family: system-ui, sans-serif;
+      position:relative;
+    }
+
+    .start-btn {
+      position:absolute;
+      left:50%;
+      bottom:5vw; /* ← 여기서 위치 조정 */
+      transform:translateX(-50%);
+      
+      appearance:none;
+      border:0;
+      outline:0;
+      cursor:pointer;
+      border-radius:999px;
+      padding: clamp(12px, 2vh, 18px) clamp(24px, 4vw, 40px);
+      font-weight:800;
+      font-size: clamp(16px, 2.5vw, 24px);
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:#0b1020;
+      background:linear-gradient(180deg, #7aa9ff, #b98cff);
+      box-shadow:0 6px 24px rgba(125, 140, 255, .45), 0 2px 6px rgba(0,0,0,.25);
+      animation: floatY 3s ease-in-out infinite, breathe 3s ease-in-out infinite;
+      transition:transform .2s ease, box-shadow .2s ease;
+    }
+
+    .start-btn:hover {
+      transform:translateX(-50%) translateY(-4px) scale(1.05);
+      box-shadow:0 12px 32px rgba(125,140,255,.6), 0 6px 12px rgba(0,0,0,.3);
+    }
+
+    @keyframes floatY {
+      0%   { transform:translateX(-50%) translateY(0) }
+      50%  { transform:translateX(-50%) translateY(-10px) }
+      100% { transform:translateX(-50%) translateY(0) }
+    }
+
+    @keyframes breathe {
+      0%   { filter: brightness(1) }
+      50%  { filter: brightness(1.08) }
+      100% { filter: brightness(1) }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      .start-btn{animation:none;}
+    }
+  </style>
+</head>
+<body>
+  <button class="start-btn">GAME START</button>
+</body>
+</html>

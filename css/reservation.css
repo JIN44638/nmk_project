@@ -97,7 +97,7 @@
 }
 
 .nav-btn {
-  background: #52ca84;
+  background: #9900ff;
   color: white;
   border: none;
   width: 40px;
@@ -223,7 +223,7 @@
 .event-item {
   /* display: flex; */
   align-items: center;
-  background: linear-gradient(135deg, #ebf3dd, #4430b1);
+  background: linear-gradient(135deg, #ffffff, #ffffff);
   /* background: linear-gradient(135deg, #667eea, #e268c8); */
   color: rgb(0, 0, 0);
   padding: 12px 15px;
